@@ -1,20 +1,31 @@
 set nocompatible
 filetype off
 
+set t_Co=256
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'morhetz/gruvbox'
+Plugin 'rakr/vim-two-firewatch'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'jnurmine/Zenburn'
 Plugin 'tpope/vim-fugitive'
 Plugin 'luochen1990/rainbow'
 Plugin 'elzr/vim-json'
 Plugin 'mattn/emmet-vim'
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'Shougo/denite.nvim'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'majutsushi/tagbar'
 call vundle#end()
 filetype plugin indent on
-
-set t_Co=256
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+map <C-n> :NERDTreeToggle<CR>
 syntax on
 if has("unix")
 	let &runtimepath=&runtimepath . ',~/.vim/bundle/vim-force.com'
@@ -33,11 +44,22 @@ set autowrite
 set number relativenumber
 set incsearch hlsearch wrapscan
 inoremap jk <ESC>
-colorscheme desert
+map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark")<CR>
+nmap <F8> :TagbarToggle<CR>
+set background=dark
+let g:two_firewatch_italics=1
+colorscheme two-firewatch
+let g:airline_theme='twofirewatch'
 set wildmenu
-let mapleader = "<Space>"
+let mapleader = " "
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set splitbelow
 set splitright
+set hidden
+if has('gui_running')
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+endif
