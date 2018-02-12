@@ -1,6 +1,6 @@
 set nocompatible
 filetype off
-
+set encoding=utf-8
 set t_Co=256
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -32,14 +32,14 @@ if has("unix")
 elseif has("win32")
 	let &runtimepath=&runtimepath . ',c:\Documents and Settings\username\vimfiles\vim-force.com'
 endif
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1 
 let g:airline_theme='base16'
 runtime ftdetect/vim-force.com.vim
 let g:apex_backup_folder="/tmp/apex/backup"
 let g:apex_temp_folder="/tmp/apex/temp"
 let g:apex_properties_folder="/home/stephan/apex-properties"
 let g:apex_tooling_force_dot_com_path="/home/stephan/tooling-force.com/tooling-force.com-0.4.0.2.jar"
-let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowTogglePlugin 'elzr/vim-json'
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 set autowrite
 set number relativenumber
 set incsearch hlsearch wrapscan
@@ -59,7 +59,11 @@ set splitbelow
 set splitright
 set hidden
 if has('gui_running')
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+    if has('win32')
+        set guifont=DejaVu_Sans_Mono_for_Powerline:h10:cANSI:qDRAFT
+    else
+        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+    endif
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
 endif
