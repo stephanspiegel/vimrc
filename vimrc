@@ -7,10 +7,19 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+"Themes
 Plugin 'morhetz/gruvbox'
 Plugin 'rakr/vim-two-firewatch'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
+Plugin 'Renxiuhu/vim-colorscheme'
+Plugin 'nightsense/vim-crunchbang'
+Plugin 'ajmwagar/vim-deus'
+Plugin 'nightsense/carbonized'
+Plugin 'fcpg/vim-farout'
+Plugin 'nightsense/strawberry'
+"End Themes
+Plugin 'neowit/vim-force.com'
 Plugin 'tpope/vim-fugitive'
 Plugin 'luochen1990/rainbow'
 Plugin 'elzr/vim-json'
@@ -21,8 +30,12 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Shougo/denite.nvim'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'valloric/youcompleteme'
+Plugin 'manasthakur/vim-commentor'
+Plugin 'sirver/ultisnips'
 call vundle#end()
 filetype plugin indent on
+runtime ftdetect/vim-force.com.vim
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 map <C-n> :NERDTreeToggle<CR>
@@ -34,7 +47,6 @@ elseif has("win32")
 endif
 let g:airline_powerline_fonts = 1 
 let g:airline_theme='base16'
-runtime ftdetect/vim-force.com.vim
 let g:apex_backup_folder="/tmp/apex/backup"
 let g:apex_temp_folder="/tmp/apex/temp"
 let g:apex_properties_folder="/home/stephan/apex-properties"
