@@ -21,6 +21,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Shougo/denite.nvim'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'ElmCast/elm-vim'
 call vundle#end()
 filetype plugin indent on
 autocmd StdinReadPre * let s:std_in=1
@@ -59,6 +60,7 @@ set splitbelow
 set splitright
 set hidden
 if has('gui_running')
+    set lines=999 columns=999
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
