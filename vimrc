@@ -2,55 +2,12 @@ set nocompatible
 filetype off
 set encoding=utf-8
 set t_Co=256
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-"Themes
-Plugin 'morhetz/gruvbox'
-Plugin 'rakr/vim-two-firewatch'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jnurmine/Zenburn'
-Plugin 'Renxiuhu/vim-colorscheme'
-Plugin 'nightsense/vim-crunchbang'
-Plugin 'ajmwagar/vim-deus'
-Plugin 'nightsense/carbonized'
-Plugin 'fcpg/vim-farout'
-Plugin 'nightsense/strawberry'
-"End Themes
-Plugin 'neowit/vim-force.com'
-Plugin 'tpope/vim-fugitive'
-Plugin 'luochen1990/rainbow'
-Plugin 'elzr/vim-json'
-Plugin 'mattn/emmet-vim'
-Plugin 'dhruvasagar/vim-table-mode'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'Shougo/denite.nvim'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'valloric/youcompleteme'
-Plugin 'manasthakur/vim-commentor'
-Plugin 'sirver/ultisnips'
-call vundle#end()
 filetype plugin indent on
-runtime ftdetect/vim-force.com.vim
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-map <C-n> :NERDTreeToggle<CR>
 syntax on
-if has("unix")
-	let &runtimepath=&runtimepath . ',~/.vim/bundle/vim-force.com'
-elseif has("win32")
-	let &runtimepath=&runtimepath . ',c:\Documents and Settings\username\vimfiles\vim-force.com'
-endif
-let g:airline_powerline_fonts = 1 
+source $HOME/.vim/config/plugins.vimrc
+source $HOME/.vim/config/force.com.vimrc
+let g:airline_powerline_fonts = 1
 let g:airline_theme='base16'
-let g:apex_backup_folder="/tmp/apex/backup"
-let g:apex_temp_folder="/tmp/apex/temp"
-let g:apex_properties_folder="/home/stephan/apex-properties"
-let g:apex_tooling_force_dot_com_path="/home/stephan/tooling-force.com/tooling-force.com-0.4.0.2.jar"
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 set autowrite
 set number relativenumber
@@ -70,12 +27,13 @@ set expandtab
 set splitbelow
 set splitright
 set hidden
-if has('gui_running')
-    if has('win32')
-        set guifont=DejaVu_Sans_Mono_for_Powerline:h10:cANSI:qDRAFT
-    else
-        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
-    endif
-    set guioptions-=m  "remove menu bar
-    set guioptions-=T  "remove toolbar
+" Convert slashes to backslashes for Windows.
+if has('win32')
+    nmap ,cs :let @*=substitute(expand("%"), "/", "\\", "g")<CR>
+    nmap ,cl :let @*=substitute(expand("%:p"), "/", "\\", "g")<CR>
+      " This will copy the path in 8.3 short format, for DOS and Windows 9x
+    nmap ,c8 :let @*=substitute(expand("%:p:8"), "/", "\\", "g")<CR>
+else
+    nmap ,cs :let @*=expand("%")<CR>
+    nmap ,cl :let @*=expand("%:p")<CR>
 endif
