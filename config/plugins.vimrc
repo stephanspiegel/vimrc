@@ -2,6 +2,21 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
+" Auto Pairs: insert or delete brackets, parens, quotes in pairs
+Plugin 'jiangmiao/auto-pairs'
+
+" Commentary: comment out lines of code
+Plugin 'tpope/vim-commentary'
+
+" Gitgutter: display git diff info
+Plugin 'airblade/vim-gitgutter'
+
+" Automatically set tabstop
+Plugin 'tpope/vim-sleuth'
+
+" Vim Vinegar: Simplify netrw
+Plugin 'tpope/vim-vinegar'
+
 
 Plugin 'neowit/vim-force.com'
 Plugin 'tpope/vim-fugitive'
@@ -24,11 +39,5 @@ Plugin 'morhetz/gruvbox'
 Plugin 'rakr/vim-two-firewatch'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
-Plugin 'Renxiuhu/vim-colorscheme'
-Plugin 'nightsense/vim-crunchbang'
-Plugin 'ajmwagar/vim-deus'
-Plugin 'nightsense/carbonized'
-Plugin 'fcpg/vim-farout'
-Plugin 'nightsense/strawberry'
 
 call vundle#end()
