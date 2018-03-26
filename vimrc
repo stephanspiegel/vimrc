@@ -49,6 +49,9 @@ set smartcase
 " Color at column 80
 set colorcolumn=80
 
+" Easy buffer switching
+:nnoremap <F5> :buffers<CR>:buffer<Space>
+
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 set autowrite
 set autoread
