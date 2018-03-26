@@ -1,6 +1,7 @@
 # Vim persistent undo files
 *.un~
 *.swp
+*.swo
 
 # Vim undodir
 vim/undodir/*
