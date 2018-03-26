@@ -39,5 +39,11 @@ Plugin 'morhetz/gruvbox'
 Plugin 'rakr/vim-two-firewatch'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
+Plugin 'machakann/vim-colorscheme-tatami'
+Plugin 'szorfein/darkest-space'
+Plugin 'dennougorilla/azuki.vim'
+Plugin 'ajmwagar/vim-deus'
+Plugin 'nightsense/stellarized'
+Plugin 'thenewvu/vim-colors-sketching'
 
 call vundle#end()
