@@ -11,6 +11,6 @@ elseif has("win32")
     let g:apex_properties_folder="c:\\users\\sspiegel\\apex-properties"
     let g:apex_backup_folder="c:\\tools\\vimfiles\\apex\\backup"
     let g:apex_temp_folder="c:\\tools\\vimfiles\\apex\\temp"
-    let g:apex_workspace_path="c:\\users\\sspiegel\\projects"
+    let g:apex_diff_cmd="kdiff3"
 endif
 runtime ftdetect/vim-force.com.vim
