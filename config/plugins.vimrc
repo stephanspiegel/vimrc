@@ -58,14 +58,15 @@ Plugin 'pangloss/vim-javascript'
 " Elm: eml language support
 Plugin 'ElmCast/elm-vim'
 
-" fzf: Fuzzy finder
-Plugin 'junegunn/fzf'
-
 " Togglelist: toggle Location and Quickfix lists
 Plugin 'milkypostman/vim-togglelist'
 
+" CtrlP: fuzzy finder
+Plugin 'ctrlpvim/ctrlp.vim'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tagbar#enabled = 0
 
 " Themes
 Plugin 'morhetz/gruvbox'
