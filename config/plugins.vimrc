@@ -64,6 +64,12 @@ Plugin 'milkypostman/vim-togglelist'
 " CtrlP: fuzzy finder
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" RipGrep: faster grep
+Plugin 'jremmen/vim-ripgrep'
+
+" Obsession: better session handling
+Plugin 'tpope/vim-obsession'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tagbar#enabled = 0
