@@ -70,6 +70,12 @@ Plugin 'jremmen/vim-ripgrep'
 " Obsession: better session handling
 Plugin 'tpope/vim-obsession'
 
+" Surround: surround with quotes, brackets, etc.
+Plugin 'tpope/vim-surround' 
+
+" Identline: show indent levels
+Plugin 'Yggdroot/indentLine'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tagbar#enabled = 0
@@ -85,5 +91,6 @@ Plugin 'dennougorilla/azuki.vim'
 Plugin 'ajmwagar/vim-deus'
 Plugin 'nightsense/stellarized'
 Plugin 'thenewvu/vim-colors-sketching'
+Plugin 'junegunn/seoul256.vim'
 
 call vundle#end()

@@ -20,6 +20,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set hidden
+set linebreak
+set breakindent
 
 " Open new splits to right and bottom
 set splitbelow
@@ -33,6 +35,10 @@ set smartcase
 
 " Color at column 120
 set colorcolumn=120
+
+" Invisible characters
+set listchars=trail:·,space:·,nbsp:␣,precedes:«,extends:»,eol:↲,tab:▸\ 
+set showbreak=↪\
 
 " Easy buffer switching
 :nnoremap <F5> :buffers<CR>:buffer<Space>
