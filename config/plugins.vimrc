@@ -55,6 +55,9 @@ Plugin 'sirver/ultisnips'
 " Javascript language support
 Plugin 'pangloss/vim-javascript'
 
+" JSX: jsx syntax highlighting and indenting
+Plugin 'mxw/vim-jsx'
+
 " Elm: eml language support
 Plugin 'ElmCast/elm-vim'
 
