@@ -52,6 +52,16 @@ Plugin 'majutsushi/tagbar'
 " Ultisnips: Snippets management
 Plugin 'sirver/ultisnips'
 
+" Snippets: bunch of snippets for Ultisnips
+Plugin 'honza/vim-snippets'
+
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetsDir="~/.vim/config/UltiSnips"
+
 " Javascript language support
 Plugin 'pangloss/vim-javascript'
 
