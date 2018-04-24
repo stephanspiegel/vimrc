@@ -98,11 +98,6 @@ Plugin 'ledger/vim-ledger'
 " TODO: todo.txt support
 Plugin 'vim-scripts/todo-txt.vim'
 
-
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-let g:airline#extensions#tagbar#enabled = 0
-
 " Themes
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
