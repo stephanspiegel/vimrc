@@ -1,0 +1,39 @@
+snippet debug "Debug variable or expression"
+System.debug('${1}: '+$1);
+endsnippet
+snippet test "Unit test method"
+@isTest static void itShould${1}(){
+  Test.startTest();
+  Test.stopTest();
+  System.assertEquals(${2:expected}, ${3:actual});
+}
+endsnippet
+snippet newlist "New list declaration"
+List<${1:String}> ${VISUAL} = new List<${1}>();
+endsnippet
+snippet newset "New set declaration"
+Set<${1:String}> ${VISUAL} = new Set<${1}>();
+endsnippet
+snippet newmap "New map declaration"
+Map<${1:String}, ${2:String}> ${VISUAL} = new Map<${1}, ${2}>();
+endsnippet
+snippet for "For loop iterating a collection"
+for (${1:String} ${2:item} : ${3:collection}) {
+
+}
+endsnippet
+snippet fori "Traditional for loop"
+for (Integer i = 0; i < ${1}; i++) {
+
+}
+endsnippet
+snippet trycatch "Try/Catch block"
+try{
+  ${VISUAL}
+} catch(Exception ex){
+
+}
+endsnippet  
+snippet todo "todo comment"
+// TODO: stephan.spiegel:${1:`!v strftime("0%Y-%m-%d-%a")`} ${2}
+endsnippet

@@ -95,6 +95,15 @@ Plugin 'Yggdroot/indentLine'
 " Support for ledger accounting files
 Plugin 'ledger/vim-ledger'
 
+" TODO: todo.txt support
+Plugin 'vim-scripts/todo-txt.vim'
+
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tagbar#enabled = 0
+
+" Themes
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tagbar#enabled = 0
@@ -111,5 +120,8 @@ Plugin 'ajmwagar/vim-deus'
 Plugin 'nightsense/stellarized'
 Plugin 'thenewvu/vim-colors-sketching'
 Plugin 'junegunn/seoul256.vim'
+Plugin 'wimstefan/vim-artesanal'
+Plugin 'HenryNewcomer/vim-theme-underflow'
+Plugin 'yuttie/inkstained-vim'
 
 call vundle#end()
