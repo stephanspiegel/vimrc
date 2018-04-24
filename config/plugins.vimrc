@@ -23,6 +23,9 @@ Plugin 'tpope/vim-vinegar'
 " rust.vim: rust language support
 Plugin 'rust-lang/rust.vim'
 
+" Cargo: cargo support for rust projects
+Plugin 'timonv/vim-cargo'
+
 " vim force: Salesforce support
 Plugin 'neowit/vim-force.com'
 
@@ -88,6 +91,9 @@ Plugin 'tpope/vim-surround'
 
 " Identline: show indent levels
 Plugin 'Yggdroot/indentLine'
+
+" Support for ledger accounting files
+Plugin 'ledger/vim-ledger'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
