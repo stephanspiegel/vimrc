@@ -13,6 +13,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetsDir="~/.vim/config/UltiSnips"
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+let g:snips_author="stephan.spiegel"
 
 source $HOME/.vim/config/vim-force.com.vimrc
 source $HOME/.vim/config/mappings.vimrc
@@ -61,3 +62,4 @@ let g:airline_theme='twofirewatch'
 
 " Add vim config directory to runtimepath
 set rtp^=$HOME/.vim/config
+

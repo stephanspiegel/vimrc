@@ -55,13 +55,6 @@ Plugin 'sirver/ultisnips'
 " Snippets: bunch of snippets for Ultisnips
 Plugin 'honza/vim-snippets'
 
-" Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetsDir="~/.vim/config/UltiSnips"
-
 " Javascript language support
 Plugin 'pangloss/vim-javascript'
 
@@ -89,6 +82,9 @@ Plugin 'tpope/vim-surround'
 " Identline: show indent levels
 Plugin 'Yggdroot/indentLine'
 
+" TODO: todo.txt support
+Plugin 'vim-scripts/todo-txt.vim'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tagbar#enabled = 0
@@ -105,5 +101,8 @@ Plugin 'ajmwagar/vim-deus'
 Plugin 'nightsense/stellarized'
 Plugin 'thenewvu/vim-colors-sketching'
 Plugin 'junegunn/seoul256.vim'
+Plugin 'wimstefan/vim-artesanal'
+Plugin 'HenryNewcomer/vim-theme-underflow'
+Plugin 'yuttie/inkstained-vim'
 
 call vundle#end()
