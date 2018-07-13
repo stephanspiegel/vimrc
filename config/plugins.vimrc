@@ -39,6 +39,7 @@ Plugin 'vim-syntastic/syntastic'
 
 " Json language support
 Plugin 'elzr/vim-json'
+let g:vim_json_syntax_conceal = 0
 
 " Emmet: HTML templating
 Plugin 'mattn/emmet-vim'
@@ -51,6 +52,8 @@ Plugin 'vim-scripts/taglist.vim'
 
 " Tag Bar: Display tags
 Plugin 'majutsushi/tagbar'
+" show tags in the order they appear in the source
+let g:tagbar_sort = 0
 
 " Ultisnips: Snippets management
 Plugin 'sirver/ultisnips'
@@ -87,7 +90,7 @@ Plugin 'jremmen/vim-ripgrep'
 Plugin 'tpope/vim-obsession'
 
 " Surround: surround with quotes, brackets, etc.
-Plugin 'tpope/vim-surround' 
+Plugin 'tpope/vim-surround'
 
 " Identline: show indent levels
 Plugin 'Yggdroot/indentLine'
@@ -97,6 +100,29 @@ Plugin 'ledger/vim-ledger'
 
 " TODO: todo.txt support
 Plugin 'vim-scripts/todo-txt.vim'
+
+" EasyMotion: movement hints
+Plugin 'easymotion/vim-easymotion'
+
+" Startify: menu on vim startup
+Plugin 'mhinz/vim-startify'
+function! s:list_sessions()
+    let sessions = map(split(globpath(g:session_directory, '*.vim'), '\n'), {index, val -> fnamemodify(val, ':t:r')})
+    return map(sessions, '{"line": v:val, "cmd": "OpenSession " . v:val}')
+endfunction
+
+let g:startify_lists = [
+      \ { 'type': function('s:list_sessions'),  'header': ['   Sessions']       },
+      \ { 'type': 'commands',                   'header': ['   Commands']       },
+      \ { 'type': 'files',                      'header': ['   MRU']            },
+      \ { 'type': 'dir',                        'header': ['   MRU '. getcwd()] },
+      \ { 'type': 'bookmarks',                  'header': ['   Bookmarks']      },
+      \ ]
+
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
+let g:session_autosave = 'yes'
+let g:session_directory = '~/.vim/sessions'
 
 " Themes
 Plugin 'vim-airline/vim-airline'
