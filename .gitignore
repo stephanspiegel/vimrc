@@ -22,6 +22,9 @@ emacs-plugins/*
 # Ignore Vim bundles
 bundle/
 
+# Ignore sessions
+sessions/
+
 # Keep these folders...
 !vim/backups/.gitkeep
 !vim/undodir/.gitkeep
