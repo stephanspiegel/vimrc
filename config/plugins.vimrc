@@ -28,6 +28,7 @@ Plugin 'timonv/vim-cargo'
 
 " vim force: Salesforce support
 Plugin 'neowit/vim-force.com'
+" see \config\vim-force.com.vimrc for configuration
 
 Plugin 'tpope/vim-fugitive'
 
@@ -60,7 +61,6 @@ Plugin 'sirver/ultisnips'
 
 " Snippets: bunch of snippets for Ultisnips
 Plugin 'honza/vim-snippets'
-
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -74,7 +74,7 @@ Plugin 'pangloss/vim-javascript'
 " JSX: jsx syntax highlighting and indenting
 Plugin 'mxw/vim-jsx'
 
-" Elm: eml language support
+" Elm: elm language support
 Plugin 'ElmCast/elm-vim'
 
 " Togglelist: toggle Location and Quickfix lists
@@ -82,12 +82,14 @@ Plugin 'milkypostman/vim-togglelist'
 
 " CtrlP: fuzzy finder
 Plugin 'ctrlpvim/ctrlp.vim'
+if executable('rg')
+    set grepprg=rg\ --color=never
+    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+    let g:ctrlp_use_caching = 0
+endif
 
 " RipGrep: faster grep
 Plugin 'jremmen/vim-ripgrep'
-
-" Obsession: better session handling
-Plugin 'tpope/vim-obsession'
 
 " Surround: surround with quotes, brackets, etc.
 Plugin 'tpope/vim-surround'
