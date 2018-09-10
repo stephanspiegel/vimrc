@@ -6,15 +6,6 @@ source $HOME/.vim/config/plugins.vimrc
 filetype plugin indent on
 syntax on
 
-" Ultisnips Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetsDir="~/.vim/config/UltiSnips"
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-let g:snips_author="stephan.spiegel"
-
 source $HOME/.vim/config/vim-force.com.vimrc
 source $HOME/.vim/config/mappings.vimrc
 let g:airline_powerline_fonts = 1
@@ -48,7 +39,7 @@ set smartcase
 set colorcolumn=120
 
 " Invisible characters
-set listchars=trail:·,space:·,nbsp:␣,precedes:«,extends:»,eol:↲,tab:▸\ 
+set listchars=trail:·,space:·,nbsp:␣,precedes:«,extends:»,eol:↲,tab:▸\
 set showbreak=↪\
 
 " Easy buffer switching
@@ -94,3 +85,37 @@ endfunction
 
 command! -bar -nargs=? ShowSpaces call ShowSpaces(<args>)
 command! -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
+
+function! DoPrettyXML()
+  " save the filetype so we can restore it later
+  let l:origft = &ft
+  set ft=
+  " delete the xml header if it exists. This will
+  " permit us to surround the document with fake tags
+  " without creating invalid xml.
+  1s/<?xml .*?>//e
+  " insert fake tags around the entire document.
+  " This will permit us to pretty-format excerpts of
+  " XML that may contain multiple top-level elements.
+  0put ='<PrettyXML>'
+  $put ='</PrettyXML>'
+  silent %!xmllint --format -
+  " xmllint will insert an <?xml?> header. it's easy enough to delete
+  " if you don't want it.
+  " delete the fake tags
+  2d
+  $d
+  " restore the 'normal' indentation, which is one extra level
+  " too deep due to the extra tags we wrapped around the document.
+  silent %<
+  " back to home
+  1
+  " restore the filetype
+  exe "set ft=" . l:origft
+endfunction
+command! PrettyXML call DoPrettyXML()
+
+function! DoFormatJSON()
+  :%!python -m json.tool
+endfunction
+command! FormatJSON call DoFormatJSON()
