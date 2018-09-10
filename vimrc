@@ -6,23 +6,10 @@ source $HOME/.vim/config/plugins.vimrc
 filetype plugin indent on
 syntax on
 
-" Ultisnips Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetsDir="~/.vim/config/UltiSnips"
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-let g:snips_author="stephan.spiegel"
-
 source $HOME/.vim/config/vim-force.com.vimrc
 source $HOME/.vim/config/mappings.vimrc
-let g:airline_powerline_fonts = 1
-let g:airline_theme='base16'
-let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 set autowrite
 set autoread
-call neomake#configure#automake('w')
 set number relativenumber
 set incsearch hlsearch wrapscan
 set wildmenu
@@ -57,9 +44,6 @@ set showbreak=↪\
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
 set background=dark
-let g:two_firewatch_italics=1
-colorscheme two-firewatch
-let g:airline_theme='twofirewatch'
 
 " Add vim config directory to runtimepath
 set rtp^=$HOME/.vim/config

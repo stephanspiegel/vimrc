@@ -34,6 +34,7 @@ Plugin 'tpope/vim-fugitive'
 
 " Rainbow: show matching braces in matching colors
 Plugin 'luochen1990/rainbow'
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
 " Syntastic: syntax checker
 Plugin 'vim-syntastic/syntastic'
@@ -67,6 +68,8 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetsDir="~/.vim/config/UltiSnips"
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+let g:snips_author="stephan.spiegel"
 
 " Javascript language support
 Plugin 'pangloss/vim-javascript'
@@ -99,12 +102,20 @@ Plugin 'Yggdroot/indentLine'
 
 " Support for ledger accounting files
 Plugin 'ledger/vim-ledger'
+let g:ledger_default_commodity = '$'
+let g:ledger_commodity_before = 1
+let g:ledger_decimal_sep = '.'
+let g:ledger_date_format = '%Y-%m-%d'
+let g:ledger_align_at = 60
+
+" Ledger-x: more ledger support
+Plugin 'rcaputo/vim-ledger_x'
 
 " TODO: todo.txt support
 Plugin 'vim-scripts/todo-txt.vim'
 
-" EasyMotion: movement hints
-Plugin 'easymotion/vim-easymotion'
+" CSV.vim: csv support
+Plugin 'chrisbra/csv.vim'
 
 " Startify: menu on vim startup
 Plugin 'mhinz/vim-startify'
@@ -126,14 +137,20 @@ Plugin 'xolox/vim-session'
 let g:session_autosave = 'yes'
 let g:session_directory = '~/.vim/sessions'
 
-" Themes
+" Netranger: file manager
+Plugin 'ipod825/vim-netranger'
+
+" Bar Themes
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='base16'
 let g:airline#extensions#tagbar#enabled = 0
 
 " Themes
 Plugin 'morhetz/gruvbox'
 Plugin 'rakr/vim-two-firewatch'
+let g:two_firewatch_italics=1
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
 Plugin 'machakann/vim-colorscheme-tatami'
@@ -148,3 +165,6 @@ Plugin 'HenryNewcomer/vim-theme-underflow'
 Plugin 'yuttie/inkstained-vim'
 
 call vundle#end()
+
+colorscheme gruvbox
+call neomake#configure#automake('w')
