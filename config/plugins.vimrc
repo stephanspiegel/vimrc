@@ -172,29 +172,8 @@ let g:startify_lists = [
 
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
-
-" Startify: menu on vim startup
-Plugin 'mhinz/vim-startify'
-function! s:list_sessions()
-    let sessions = map(split(globpath(g:session_directory, '*.vim'), '\n'), {index, val -> fnamemodify(val, ':t:r')})
-    return map(sessions, '{"line": v:val, "cmd": "OpenSession " . v:val}')
-endfunction
-
-let g:startify_lists = [
-      \ { 'type': function('s:list_sessions'),  'header': ['   Sessions']       },
-      \ { 'type': 'commands',                   'header': ['   Commands']       },
-      \ { 'type': 'files',                      'header': ['   MRU']            },
-      \ { 'type': 'dir',                        'header': ['   MRU '. getcwd()] },
-      \ { 'type': 'bookmarks',                  'header': ['   Bookmarks']      },
-      \ ]
-
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-session'
 let g:session_autosave = 'yes'
 let g:session_directory = '~/.vim/sessions'
-
-" Netranger: file manager
-Plugin 'ipod825/vim-netranger'
 
 " Bar Themes
 Plugin 'vim-airline/vim-airline'
