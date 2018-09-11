@@ -71,6 +71,26 @@ let g:UltiSnipsSnippetsDir="~/.vim/config/UltiSnips"
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 let g:snips_author="stephan.spiegel"
 
+" Add mapping for completion of snippets
+inoremap <silent> <c-x><c-z> <c-r>=<sid>ulti_complete()<cr>
+
+function! s:ulti_complete() abort
+    if empty(UltiSnips#SnippetsInCurrentScope(1))
+        return ''
+    endif
+    let contain_word = 'stridx(v:val, word_to_complete)>=0'
+    let candidates = map(filter(keys(g:current_ulti_dict_info), contain_word),
+                   \  "{
+                   \      'word': v:val,
+                   \      'menu': '[snip] '. g:current_ulti_dict_info[v:val]['description'],
+                   \      'dup' : 1,
+                   \   }")
+    let from_where = col('.') - len(word_to_complete)
+    if !empty(candidates)
+        call complete(from_where, candidates)
+    endif
+    return ''
+endfunction
 " Javascript language support
 Plugin 'pangloss/vim-javascript'
 
@@ -102,7 +122,7 @@ Plugin 'Yggdroot/indentLine'
 
 " Support for ledger accounting files
 Plugin 'ledger/vim-ledger'
-let g:ledger_default_commodity = '$'
+let g:ledger_default_commodity = 'USD'
 let g:ledger_commodity_before = 1
 let g:ledger_decimal_sep = '.'
 let g:ledger_date_format = '%Y-%m-%d'
@@ -111,11 +131,47 @@ let g:ledger_align_at = 60
 " Ledger-x: more ledger support
 Plugin 'rcaputo/vim-ledger_x'
 
+" CSV.vim: csv support
+Plugin 'chrisbra/csv.vim'
+
 " TODO: todo.txt support
 Plugin 'vim-scripts/todo-txt.vim'
 
-" CSV.vim: csv support
-Plugin 'chrisbra/csv.vim'
+" unimpaired.vim
+Plugin 'tpope/vim-unimpaired'
+
+" Rest Console: Rest client
+Plugin 'diepm/vim-rest-console'
+let g:vrc_curl_opts = {
+  \ '--connect-timeout' : 10,
+  \ '-L': '',
+  \ '--max-time': 60,
+  \ '--ipv4': ''
+  \}
+
+" NetRanger: file explorer
+Plugin 'ipod825/vim-netranger'
+
+" VimDebugger: debug node
+Plugin 'sidorares/node-vim-debugger'
+
+" Startify: menu on vim startup
+Plugin 'mhinz/vim-startify'
+function! s:list_sessions()
+    let sessions = map(split(globpath(g:session_directory, '*.vim'), '\n'), {index, val -> fnamemodify(val, ':t:r')})
+    return map(sessions, '{"line": v:val, "cmd": "OpenSession " . v:val}')
+endfunction
+
+let g:startify_lists = [
+      \ { 'type': function('s:list_sessions'),  'header': ['   Sessions']       },
+      \ { 'type': 'commands',                   'header': ['   Commands']       },
+      \ { 'type': 'files',                      'header': ['   MRU']            },
+      \ { 'type': 'dir',                        'header': ['   MRU '. getcwd()] },
+      \ { 'type': 'bookmarks',                  'header': ['   Bookmarks']      },
+      \ ]
+
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
 
 " Startify: menu on vim startup
 Plugin 'mhinz/vim-startify'
