@@ -2,8 +2,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
-" Auto Pairs: insert or delete brackets, parens, quotes in pairs
-Plugin 'jiangmiao/auto-pairs'
+" Pear Tree: A painless, powerful Vim auto-pair plugin.
+Plugin 'https://github.com/tmsvg/pear-tree'
 
 " Commentary: comment out lines of code
 Plugin 'tpope/vim-commentary'
@@ -37,6 +37,7 @@ Plugin 'luochen1990/rainbow'
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
 " Syntastic: syntax checker
+" replace with ale?
 Plugin 'vim-syntastic/syntastic'
 
 " Json language support
@@ -173,6 +174,7 @@ let g:startify_lists = [
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 let g:session_autosave = 'yes'
+let g:session_autoload = 'no'
 let g:session_directory = '~/.vim/sessions'
 
 " Bar Themes
