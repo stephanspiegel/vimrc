@@ -4,6 +4,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Pear Tree: A painless, powerful Vim auto-pair plugin.
 Plugin 'https://github.com/tmsvg/pear-tree'
+" enable smart pairs
+let g:pear_tree_smart_openers = 0
+let g:pear_tree_smart_closers = 0
+let g:pear_tree_smart_backspace = 0
 
 " Commentary: comment out lines of code
 Plugin 'tpope/vim-commentary'
