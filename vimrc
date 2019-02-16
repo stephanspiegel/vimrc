@@ -10,7 +10,6 @@ source $HOME/.vim/config/vim-force.com.vimrc
 source $HOME/.vim/config/mappings.vimrc
 set autowrite
 set autoread
-set number relativenumber
 set incsearch hlsearch wrapscan
 set wildmenu
 set wildignore+=*/.git/*,*/tmp/*,*.swp,*cls-meta.xml
@@ -37,9 +36,6 @@ set colorcolumn=120
 " Invisible characters
 set listchars=trail:·,space:·,nbsp:␣,precedes:«,extends:»,eol:↲,tab:▸\
 set showbreak=↪\
-
-" Easy buffer switching
-:nnoremap <F5> :buffers<CR>:buffer<Space>
 
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 

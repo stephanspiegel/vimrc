@@ -2,6 +2,9 @@ let mapleader = " "
 
 inoremap jk <ESC>
 
+" edit .vimrc
+:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
 " Toggle light/dark color theme
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark")<CR>
 
@@ -31,3 +34,10 @@ else
     nmap ,cs :let @*=expand("%")<CR>
     nmap ,cl :let @*=expand("%:p")<CR>
 endif
+
+" Easy buffer switching
+:nnoremap <F5> :buffers<CR>:buffer<Space>
+
+" Uppercase in insert mode
+inoremap <c-u> <esc>viwUea
+

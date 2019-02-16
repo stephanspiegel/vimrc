@@ -51,6 +51,12 @@ let g:vim_json_syntax_conceal = 0
 " Emmet: HTML templating
 Plugin 'mattn/emmet-vim'
 
+" HTML5-syntax: html5 syntax highlighting
+Plugin 'othree/html5-syntax.vim'
+
+" HTML5: html5 autocomplete
+Plugin 'othree/html5.vim'
+
 " Table Mode: create and manipulate ASCII tables
 Plugin 'dhruvasagar/vim-table-mode'
 
@@ -160,6 +166,9 @@ Plugin 'ipod825/vim-netranger'
 " VimDebugger: debug node
 Plugin 'sidorares/node-vim-debugger'
 
+"Vim-node: work with node
+Plugin 'moll/vim-node'
+
 " Startify: menu on vim startup
 Plugin 'mhinz/vim-startify'
 function! s:list_sessions()
@@ -204,6 +213,8 @@ Plugin 'junegunn/seoul256.vim'
 Plugin 'wimstefan/vim-artesanal'
 Plugin 'HenryNewcomer/vim-theme-underflow'
 Plugin 'yuttie/inkstained-vim'
+Plugin 'rakr/vim-one'
+Plugin 'KKPMW/oldbook-vim'
 
 call vundle#end()
 
