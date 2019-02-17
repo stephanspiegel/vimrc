@@ -68,7 +68,7 @@ endfunction
 
 function! TrimSpaces() range
   let oldhlsearch=ShowSpaces(1)
-  execute a:firstline.",".a:lastline."substitute ///gec"
+  execute a:firstline.",".a:lastline."substitute ///ge"
   let &hlsearch=oldhlsearch
 endfunction
 
