@@ -19,6 +19,7 @@ set expandtab
 set hidden
 set linebreak
 set breakindent
+set visualbell                                          " no sounds
 
 " Open new splits to right and bottom
 set splitbelow
