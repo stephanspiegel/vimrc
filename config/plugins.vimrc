@@ -190,6 +190,10 @@ let g:session_autosave = 'yes'
 let g:session_autoload = 'no'
 let g:session_directory = '~/.vim/sessions'
 
+" Gundo.vim: Undo tree viewer
+Plugin 'sjl/gundo.vim'
+nnoremap <leader>u :GundoToggle<CR>
+
 " Bar Themes
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
