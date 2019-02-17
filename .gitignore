@@ -40,3 +40,6 @@ icopy-*.image
 
 # Ignore old version of vim-plug (created by `:PlugUpgrade`)
 plug.vim.old
+
+
+view/
