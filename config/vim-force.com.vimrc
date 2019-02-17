@@ -88,7 +88,6 @@ autocmd FileType apexcode iabbrev <buffer> select SELECT
 autocmd FileType apexcode iabbrev <buffer> from FROM
 autocmd FileType apexcode iabbrev <buffer> where WHERE
 autocmd FileType apexcode iabbrev <buffer> and AND
-autocmd FileType apexcode iabbrev <buffer> group by GROUP BY
 autocmd FileType apexcode iabbrev <buffer> limit LIMIT
 
 runtime ftdetect/vim-force.com.vim
