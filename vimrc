@@ -106,9 +106,11 @@ function! DoPrettyXML()
   " restore the filetype
   exe "set ft=" . l:origft
 endfunction
-command! PrettyXML call DoPrettyXML()
+command! FormatXML call DoPrettyXML()
 
 function! DoFormatJSON()
   :%!python -m json.tool
 endfunction
 command! FormatJSON call DoFormatJSON()
+
+let g:session_autoload = 'no'
