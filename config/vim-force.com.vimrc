@@ -7,7 +7,7 @@ if has("unix")
     let g:apex_workspace_path="/home/stephan/Projects/"
 elseif has("win32")
     let &runtimepath=&runtimepath . ',c:\\tools\\vimfiles\\vim-force.com'
-    let g:apex_tooling_force_dot_com_path="c:\\tools\\vimfiles\\vim-force.com\\tooling-force.com-assembly-v0.4.2.0.jar"
+    let g:apex_tooling_force_dot_com_path="c:\\tools\\vimfiles\\vim-force.com\\tooling-force.com-0.4.4.0.jar"
     let g:apex_properties_folder="c:\\users\\sspiegel\\apex-properties"
     let g:apex_backup_folder="c:\\tools\\vimfiles\\apex\\backup"
     let g:apex_temp_folder="c:\\tools\\vimfiles\\apex\\temp"
