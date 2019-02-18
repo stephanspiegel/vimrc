@@ -10,7 +10,6 @@ source $HOME/.vim/config/vim-force.com.vimrc
 source $HOME/.vim/config/mappings.vimrc
 set autowrite
 set autoread
-set number relativenumber
 set incsearch hlsearch wrapscan
 set wildmenu
 set wildignore+=*/.git/*,*/tmp/*,*.swp,*cls-meta.xml
@@ -20,6 +19,7 @@ set expandtab
 set hidden
 set linebreak
 set breakindent
+set visualbell                                          " no sounds
 
 " Open new splits to right and bottom
 set splitbelow
@@ -37,9 +37,6 @@ set colorcolumn=120
 " Invisible characters
 set listchars=trail:·,space:·,nbsp:␣,precedes:«,extends:»,eol:↲,tab:▸\
 set showbreak=↪\
-
-" Easy buffer switching
-:nnoremap <F5> :buffers<CR>:buffer<Space>
 
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
@@ -72,7 +69,7 @@ endfunction
 
 function! TrimSpaces() range
   let oldhlsearch=ShowSpaces(1)
-  execute a:firstline.",".a:lastline."substitute ///gec"
+  execute a:firstline.",".a:lastline."substitute ///ge"
   let &hlsearch=oldhlsearch
 endfunction
 

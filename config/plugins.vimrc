@@ -51,6 +51,12 @@ let g:vim_json_syntax_conceal = 0
 " Emmet: HTML templating
 Plugin 'mattn/emmet-vim'
 
+" HTML5-syntax: html5 syntax highlighting
+Plugin 'othree/html5-syntax.vim'
+
+" HTML5: html5 autocomplete
+Plugin 'othree/html5.vim'
+
 " Table Mode: create and manipulate ASCII tables
 Plugin 'dhruvasagar/vim-table-mode'
 
@@ -128,10 +134,17 @@ Plugin 'Yggdroot/indentLine'
 " Support for ledger accounting files
 Plugin 'ledger/vim-ledger'
 let g:ledger_default_commodity = 'USD'
-let g:ledger_commodity_before = 1
+let g:ledger_commodity_before = 0
+let g:ledger_commodity_sep = ' '
 let g:ledger_decimal_sep = '.'
 let g:ledger_date_format = '%Y-%m-%d'
 let g:ledger_align_at = 60
+augroup Ledger 
+  autocmd!
+  autocmd FileType ledger nnoremap <silent> <leader>c :call ledger#transaction_state_set(line('.'), '*')<CR>
+  autocmd FileType ledger inoremap <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<CR>
+  autocmd FileType ledger vnoremap <silent> <Tab> :LedgerAlign<CR>
+augroup END
 
 " Ledger-x: more ledger support
 Plugin 'rcaputo/vim-ledger_x'
@@ -160,6 +173,9 @@ Plugin 'ipod825/vim-netranger'
 " VimDebugger: debug node
 Plugin 'sidorares/node-vim-debugger'
 
+"Vim-node: work with node
+Plugin 'moll/vim-node'
+
 " Startify: menu on vim startup
 Plugin 'mhinz/vim-startify'
 function! s:list_sessions()
@@ -180,6 +196,10 @@ Plugin 'xolox/vim-session'
 let g:session_autosave = 'yes'
 let g:session_autoload = 'no'
 let g:session_directory = '~/.vim/sessions'
+
+" Gundo.vim: Undo tree viewer
+Plugin 'sjl/gundo.vim'
+nnoremap <leader>u :GundoToggle<CR>
 
 " Bar Themes
 Plugin 'vim-airline/vim-airline'
@@ -204,6 +224,8 @@ Plugin 'junegunn/seoul256.vim'
 Plugin 'wimstefan/vim-artesanal'
 Plugin 'HenryNewcomer/vim-theme-underflow'
 Plugin 'yuttie/inkstained-vim'
+Plugin 'rakr/vim-one'
+Plugin 'KKPMW/oldbook-vim'
 
 call vundle#end()
 
