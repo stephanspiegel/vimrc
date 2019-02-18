@@ -139,9 +139,12 @@ let g:ledger_commodity_sep = ' '
 let g:ledger_decimal_sep = '.'
 let g:ledger_date_format = '%Y-%m-%d'
 let g:ledger_align_at = 60
-autocmd FileType ledger nnoremap <silent> <leader>c :call ledger#transaction_state_set(line('.'), '*')<CR>
-au FileType ledger inoremap <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<CR>
-au FileType ledger vnoremap <silent> <Tab> :LedgerAlign<CR>
+augroup Ledger 
+  autocmd!
+  autocmd FileType ledger nnoremap <silent> <leader>c :call ledger#transaction_state_set(line('.'), '*')<CR>
+  autocmd FileType ledger inoremap <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<CR>
+  autocmd FileType ledger vnoremap <silent> <Tab> :LedgerAlign<CR>
+augroup END
 
 " Ledger-x: more ledger support
 Plugin 'rcaputo/vim-ledger_x'
