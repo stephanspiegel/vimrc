@@ -1,3 +1,8 @@
+snippet sobject "Create an SObject for a unit test"
+${1:SObjectType} ${2:sObjectName} = ($1)clsTestFactory.createSObject(new $1(
+    $0
+));
+endsnippet
 snippet debug "Debug variable or expression"
 System.debug('${1}: '+$1);
 endsnippet
@@ -20,7 +25,7 @@ Map<${1:String}, ${2:String}> ${VISUAL} = new Map<${1}, ${2}>();
 endsnippet
 snippet for "For loop iterating a collection"
 for (${1:String} ${2:item} : ${3:collection}) {
-
+    $0
 }
 endsnippet
 snippet fori "Traditional for loop"
