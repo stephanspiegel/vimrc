@@ -112,7 +112,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'ElmCast/elm-vim'
 
 " Togglelist: toggle Location and Quickfix lists
-Plugin 'milkypostman/vim-togglelist'
+" Plugin 'milkypostman/vim-togglelist'
 
 " CtrlP: fuzzy finder
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -130,6 +130,8 @@ Plugin 'tpope/vim-surround'
 
 " Identline: show indent levels
 Plugin 'Yggdroot/indentLine'
+let g:indentLine_char = '┊'
+let g:indentLine_fileTypeExclude = ['help']
 
 " Support for ledger accounting files
 Plugin 'ledger/vim-ledger'
@@ -166,9 +168,6 @@ let g:vrc_curl_opts = {
   \ '--max-time': 60,
   \ '--ipv4': ''
   \}
-
-" NetRanger: file explorer
-Plugin 'ipod825/vim-netranger'
 
 " VimDebugger: debug node
 Plugin 'sidorares/node-vim-debugger'
@@ -226,6 +225,8 @@ Plugin 'HenryNewcomer/vim-theme-underflow'
 Plugin 'yuttie/inkstained-vim'
 Plugin 'rakr/vim-one'
 Plugin 'KKPMW/oldbook-vim'
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'mhartington/oceanic-next'
 
 call vundle#end()
 
