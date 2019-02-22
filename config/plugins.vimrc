@@ -40,9 +40,14 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'luochen1990/rainbow'
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
-" Syntastic: syntax checker
-" replace with ale?
-Plugin 'vim-syntastic/syntastic'
+" Ale: linter
+Plugin 'w0rp/ale'
+
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_save =1 
+let g:ale_lint_on_filetype_changed = 1
 
 " Json language support
 Plugin 'elzr/vim-json'
@@ -139,7 +144,7 @@ let g:ledger_commodity_sep = ' '
 let g:ledger_decimal_sep = '.'
 let g:ledger_date_format = '%Y-%m-%d'
 let g:ledger_align_at = 60
-augroup Ledger 
+augroup Ledger
   autocmd!
   autocmd FileType ledger nnoremap <silent> <leader>c :call ledger#transaction_state_set(line('.'), '*')<CR>
   autocmd FileType ledger inoremap <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<CR>
