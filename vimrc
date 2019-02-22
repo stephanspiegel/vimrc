@@ -31,7 +31,7 @@ set ignorecase
 " Except when the search query contains a capital letter
 set smartcase
 
-" Color at column 120
+" Highlight column 120 to keep lines short(er)
 set colorcolumn=120
 
 " Invisible characters
