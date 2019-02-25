@@ -1,17 +1,17 @@
-if has("unix")
+if has('unix')
     let &runtimepath=&runtimepath . ',~/.vim/bundle/vim-force.com'
-    let g:apex_tooling_force_dot_com_path="/home/stephan/tooling-force.com/tooling-force.com-assembly-v0.4.2.0.jar"
-    let g:apex_properties_folder="/home/stephan/apex-properties"
-    let g:apex_backup_folder="/tmp/apex/backup"
-    let g:apex_temp_folder="/tmp/apex/temp"
+    let g:apex_tooling_force_dot_com_path='/home/stephan/tooling-force.com/tooling-force.com-assembly-v0.4.2.0.jar'
+    let g:apex_properties_folder='/home/stephan/apex-properties'
+    let g:apex_backup_folder='/tmp/apex/backup'
+    let g:apex_temp_folder='/tmp/apex/temp'
     let g:apex_workspace_path="/home/stephan/Projects/"
-elseif has("win32")
-    let &runtimepath=&runtimepath . ',c:\\tools\\vimfiles\\vim-force.com'
+elseif has('win32')
+    let &runtimepath=&runtimepath . ",c:\\tools\\vimfiles\\vim-force.com"
     let g:apex_tooling_force_dot_com_path="c:\\tools\\vimfiles\\vim-force.com\\tooling-force.com-0.4.4.0.jar"
     let g:apex_properties_folder="c:\\users\\sspiegel\\apex-properties"
     let g:apex_backup_folder="c:\\tools\\vimfiles\\apex\\backup"
     let g:apex_temp_folder="c:\\tools\\vimfiles\\apex\\temp"
-    let g:apex_diff_cmd="kdiff3"
+    let g:apex_diff_cmd='kdiff3'
 endif
 autocmd FileType apexcode nnoremap <buffer> <C-]> :call apexComplete#goToSymbol()<Enter>
 let g:apex_server_timeoutSec=60*30 " allow server to wait for new connections within 30 minutes
@@ -46,12 +46,12 @@ function! s:setApexShortcuts()
                     \'page': '../**/*.page',
                     \'all': '../**/*.cls ../**/*.trigger ../**/*.page ../**/*.scf'}
         let l:saved_reg = @"
-        execute "normal! vgvy"
+        execute 'normal! vgvy'
 
         let l:pattern = escape(@", '\\/.*$^~[]')
-        let l:pattern = substitute(l:pattern, "\n$", "", "")
+        let l:pattern = substitute(l:pattern, "\n$", '', '')
 
-        let commandLine="noautocmd vimgrep " . '/'. l:pattern . '/j '
+        let commandLine='noautocmd vimgrep ' . '/'. l:pattern . '/j '
 
         let commandLine = commandLine . l:apex_search_patterns[a:searchType]
         "echo "commandLine=" . commandLine

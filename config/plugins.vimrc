@@ -1,4 +1,4 @@
-set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
@@ -46,7 +46,7 @@ Plugin 'w0rp/ale'
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_enter = 1
-let g:ale_lint_on_save =1 
+let g:ale_lint_on_save =1
 let g:ale_lint_on_filetype_changed = 1
 
 " Json language support
@@ -80,12 +80,12 @@ Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetsDir="~/.vim/config/UltiSnips"
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-let g:snips_author="stephan.spiegel"
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<c-b>'
+let g:UltiSnipsJumpBackwardTrigger='<c-z>'
+let g:UltiSnipsSnippetsDir='~/.vim/config/UltiSnips'
+let g:UltiSnipsSnippetDirectories=['UltiSnips']
+let g:snips_author='stephan.spiegel'
 
 " Add mapping for completion of snippets
 inoremap <silent> <c-x><c-z> <c-r>=<sid>ulti_complete()<cr>

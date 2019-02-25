@@ -1,5 +1,5 @@
-set nocompatible
 set encoding=utf-8
+scriptencoding utf-8
 set t_Co=256
 filetype off
 source $HOME/.vim/config/plugins.vimrc
@@ -48,11 +48,11 @@ set rtp^=$HOME/.vim/config
 " Show unsaved changes
 " https://stackoverflow.com/questions/749297/can-i-see-changes-before-i-save-my-file-in-vim
 function! s:DiffWithSaved()
-  let filetype=&ft
+  let filetype=&filetype
   diffthis
   vnew | r # | normal! 1Gdd
   diffthis
-  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+  exe 'setlocal bt=nofile bh=wipe nobl noswf ro ft=' . filetype
 endfunction
 command! DiffSaved call s:DiffWithSaved()
 
@@ -69,7 +69,7 @@ endfunction
 
 function! TrimSpaces() range
   let oldhlsearch=ShowSpaces(1)
-  execute a:firstline.",".a:lastline."substitute ///ge"
+  execute a:firstline.','.a:lastline.'substitute ///ge'
   let &hlsearch=oldhlsearch
 endfunction
 
@@ -78,8 +78,8 @@ command! -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
 
 function! DoPrettyXML()
   " save the filetype so we can restore it later
-  let l:origft = &ft
-  set ft=
+  let l:origft = &filetype
+  set filetype=
   " delete the xml header if it exists. This will
   " permit us to surround the document with fake tags
   " without creating invalid xml.
@@ -101,7 +101,7 @@ function! DoPrettyXML()
   " back to home
   1
   " restore the filetype
-  exe "set ft=" . l:origft
+  exe 'set ft=' . l:origft
 endfunction
 command! FormatXML call DoPrettyXML()
 
