@@ -2,7 +2,7 @@
 function DoPrettyXML()
   " save the filetype so we can restore it later
   let l:origft = &ft
-  set ft=
+  set filetype=
   " delete the xml header if it exists. This will
   " permit us to surround the document with fake tags
   " without creating invalid xml.
@@ -24,7 +24,7 @@ function DoPrettyXML()
   " back to home
   1
   " restore the filetype
-  exe "set ft=" . l:origft
+  exe 'set ft=' . l:origft
 endfunction
 command! FormatXML call DoPrettyXML()
 
