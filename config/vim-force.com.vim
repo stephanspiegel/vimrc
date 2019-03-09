@@ -5,8 +5,8 @@ if has('unix')
     let g:apex_backup_folder='/tmp/apex/backup'
     let g:apex_temp_folder='/tmp/apex/temp'
     let g:apex_workspace_path="/home/stephan/Projects/"
-elseif has('win32')
-    let &runtimepath=&runtimepath . ",c:\\tools\\vimfiles\\vim-force.com"
+elseif has("win32")
+    " let &runtimepath=&runtimepath . ',c:\\tools\\vimfiles\\vim-force.com'
     let g:apex_tooling_force_dot_com_path="c:\\tools\\vimfiles\\vim-force.com\\tooling-force.com-0.4.4.0.jar"
     let g:apex_properties_folder="c:\\users\\sspiegel\\apex-properties"
     let g:apex_backup_folder="c:\\tools\\vimfiles\\apex\\backup"
@@ -89,5 +89,14 @@ autocmd FileType apexcode iabbrev <buffer> from FROM
 autocmd FileType apexcode iabbrev <buffer> where WHERE
 autocmd FileType apexcode iabbrev <buffer> and AND
 autocmd FileType apexcode iabbrev <buffer> limit LIMIT
+
+function! s:RunApexTests()
+    let testMethod = expand("<cword>")
+    if testMethod != ""
+        let testMethod = ("." . testMethod)
+    endif
+    exec "ApexTest tooling-sync " . expand("%:t:r") . testMethod
+endfunction
+command! ApexTestThis call s:RunApexTests()
 
 runtime ftdetect/vim-force.com.vim
