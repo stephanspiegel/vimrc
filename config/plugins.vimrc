@@ -205,6 +205,32 @@ let g:session_directory = '~/.vim/sessions'
 Plugin 'sjl/gundo.vim'
 nnoremap <leader>u :GundoToggle<CR>
 
+" Vimwiki: wiki
+Plugin 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+" Calendar Vim: calendar
+Plugin 'mattn/calendar-vim'
+let g:calendar_monday = 1
+
+function! ToggleCalendar()
+  execute ':Calendar'
+  if exists('g:calendar_open')
+    if g:calendar_open == 1
+      execute 'q'
+      unlet g:calendar_open
+    else
+      g:calendar_open = 1
+    end
+  else
+    let g:calendar_open = 1
+  end
+endfunction
+augroup wiki
+  autocmd FileType vimwiki map d :VimwikiMakeDiaryNote
+  autocmd FileType vimwiki map c :call ToggleCalendar()
+augroup END
+
 " Bar Themes
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
