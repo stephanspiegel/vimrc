@@ -4,7 +4,7 @@ set t_Co=256
 filetype off
 
 " Add vim config directory to runtimepath
-set rtp^=$HOME/.vim/config
+set runtimepath^=$HOME/.vim/config
 
 runtime! /config/*.vim
 
