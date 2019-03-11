@@ -223,6 +223,9 @@ nnoremap <leader>u :GundoToggle<CR>
 " Coc: language server support
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
+" Vim Spotlightify: better search highlighting
+Plug 'fcpg/vim-spotlightify'
+
 " Bar Themes
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
