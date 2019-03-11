@@ -1,7 +1,7 @@
 " Author: Stephan Spiegel <stephan@stephanspiegel.com>
 " Description: PMD for Apex files
 
-function! after#plugin#ale_apex_pmd#Handle(buffer, lines) abort
+function! ale_linters#apex#pmd#Handle(buffer, lines) abort
     let l:pattern = '"\(\d\+\)",".*","\(.\+\)","\(\d\+\)","\(\d\+\)","\(.\+\)","\(.\+\)","\(.\+\)"$'
     let l:output = []
 
@@ -17,7 +17,7 @@ function! after#plugin#ale_apex_pmd#Handle(buffer, lines) abort
     return l:output
 endfunction
 
-function! after#plugin#ale_apex_pmd#GetCommand(buffer) abort
+function! plugin#ale_apex_pmd#GetCommand(buffer) abort
     return 'pmd '
     \ . ale#Var(a:buffer, 'apex_pmd_options')
     \ . ' -f csv'
@@ -31,6 +31,6 @@ endif
 call ale#linter#Define('apexcode', {
 \   'name': 'pmd',
 \   'executable': 'pmd',
-\   'command': function('after#plugin#ale_apex_pmd#GetCommand'),
-\   'callback': 'after#plugin#ale_apex_pmd#Handle',
+\   'command': function('ale_linters#apex#pmd#GetCommand'),
+\   'callback': 'ale_linters#apex#pmd#Handle',
 \})

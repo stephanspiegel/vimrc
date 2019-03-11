@@ -1,11 +1,14 @@
 " Author: Stephan Spiegel <stephan@stephanspiegel.com>
 " Description: PMD for Apex files
 
-function! ale_linters#apex#pmd#Handle(buffer, lines) abort
+function! after#plugin#ale_apex_pmd#Handle(buffer, lines) abort
+    echom(a:buffer)
+    echom(a:lines)
     let l:pattern = '"\(\d\+\)",".*","\(.\+\)","\(\d\+\)","\(\d\+\)","\(.\+\)","\(.\+\)","\(.\+\)"$'
     let l:output = []
 
     for l:match in ale#util#GetMatches(a:lines, l:pattern)
+        echom(l:match)
         call add(l:output, {
         \   'type': 'W',
         \   'lnum': l:match[4] + 0,
@@ -17,20 +20,22 @@ function! ale_linters#apex#pmd#Handle(buffer, lines) abort
     return l:output
 endfunction
 
-function! plugin#ale_apex_pmd#GetCommand(buffer) abort
-    return 'pmd '
+function! after#plugin#ale_apex_pmd#GetCommand(buffer) abort
+    let l:lintcommand = 'pmd '
     \ . ale#Var(a:buffer, 'apex_pmd_options')
     \ . ' -f csv'
     \ . ' -d %t'
+    echom(l:lintcommand)
+    return l:lintcommand
 endfunction
 
 if !exists('g:ale_apex_pmd_options')
-    let g:ale_apex_pmd_options = '-R rulesets\apex\ruleset.xml'
+    let g:ale_apex_pmd_options = '-R rulesets/apex/ruleset.xml'
 endif
 
 call ale#linter#Define('apexcode', {
 \   'name': 'pmd',
 \   'executable': 'pmd',
-\   'command': function('ale_linters#apex#pmd#GetCommand'),
-\   'callback': 'ale_linters#apex#pmd#Handle',
+\   'command': function('after#plugin#ale_apex_pmd#GetCommand'),
+\   'callback': 'after#plugin#ale_apex_pmd#Handle',
 \})
