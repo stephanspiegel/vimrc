@@ -226,34 +226,62 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 " Vim Spotlightify: better search highlighting
 Plug 'fcpg/vim-spotlightify'
 
+" Vim plugin authoring
+Plug 'junegunn/vader.vim'
+
 " Bar Themes
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-let g:airline_powerline_fonts = 1
-let g:airline_theme='base16'
-let g:airline#extensions#tagbar#enabled = 0
-let g:airline#extensions#ale#enabled = 1
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'sfdxuser', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head',
+      \   'sfdxuser': 'sfdx#ShowDefaultUser'
+      \ }
+      \ }
+let g:lightline.separator = { 'left': "\ue0b8", 'right': "\ue0be" }
+let g:lightline.subseparator = { 'left': "\ue0b9", 'right': "\ue0b9" }
+let g:lightline.tabline_separator = { 'left': "\ue0bc", 'right': "\ue0ba" }
+let g:lightline.tabline_subseparator = { 'left': "\ue0bb", 'right': "\ue0bb" }
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" let g:airline_powerline_fonts = 1
+" let g:airline_theme='base16'
+" let g:airline#extensions#tagbar#enabled = 0
+" let g:airline#extensions#ale#enabled = 1
 
 " Themes
-Plug 'morhetz/gruvbox'
-Plug 'rakr/vim-two-firewatch'
-let g:two_firewatch_italics=1
-Plug 'altercation/vim-colors-solarized'
-Plug 'jnurmine/Zenburn'
-Plug 'machakann/vim-colorscheme-tatami'
-Plug 'szorfein/darkest-space'
-Plug 'dennougorilla/azuki.vim'
-Plug 'ajmwagar/vim-deus'
-Plug 'nightsense/stellarized'
-Plug 'thenewvu/vim-colors-sketching'
-Plug 'junegunn/seoul256.vim'
-Plug 'wimstefan/vim-artesanal'
+Plug 'BarretRen/vim-colorscheme'
 Plug 'HenryNewcomer/vim-theme-underflow'
-Plug 'yuttie/inkstained-vim'
-Plug 'rakr/vim-one'
 Plug 'KKPMW/oldbook-vim'
+Plug 'abnt713/vim-hashpunk'
+Plug 'ajmwagar/vim-deus'
+Plug 'altercation/vim-colors-solarized'
+Plug 'aonemd/kuroi.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'dennougorilla/azuki.vim'
+Plug 'jnurmine/Zenburn'
+Plug 'junegunn/seoul256.vim'
+Plug 'liuchengxu/space-vim-theme'
+Plug 'machakann/vim-colorscheme-tatami'
 Plug 'mhartington/oceanic-next'
+Plug 'morhetz/gruvbox'
+Plug 'nightsense/stellarized'
+Plug 'rakr/vim-one'
+Plug 'rakr/vim-two-firewatch'
+Plug 'sainnhe/vim-color-atlantis'
+Plug 'sainnhe/vim-color-grimoire'
+Plug 'smallwat3r/vim-hashpunk-sw'
+Plug 'szorfein/darkest-space'
+Plug 'thenewvu/vim-colors-sketching'
+Plug 'victorze/foo'
+Plug 'wimstefan/vim-artesanal'
+Plug 'xstrex/FireCode.vim'
+Plug 'yuttie/inkstained-vim'
+let g:two_firewatch_italics=1
 
 call plug#end()
 
