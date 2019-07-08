@@ -2,13 +2,10 @@
 " Description: PMD for Apex files
 
 function! after#plugin#ale_apex_pmd#Handle(buffer, lines) abort
-    echom(a:buffer)
-    echom(a:lines)
     let l:pattern = '"\(\d\+\)",".*","\(.\+\)","\(\d\+\)","\(\d\+\)","\(.\+\)","\(.\+\)","\(.\+\)"$'
     let l:output = []
 
     for l:match in ale#util#GetMatches(a:lines, l:pattern)
-        echom(l:match)
         call add(l:output, {
         \   'type': 'W',
         \   'lnum': l:match[4] + 0,
@@ -25,7 +22,6 @@ function! after#plugin#ale_apex_pmd#GetCommand(buffer) abort
     \ . ale#Var(a:buffer, 'apex_pmd_options')
     \ . ' -f csv'
     \ . ' -d %t'
-    echom(l:lintcommand)
     return l:lintcommand
 endfunction
 

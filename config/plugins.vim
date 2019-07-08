@@ -42,8 +42,11 @@ let g:vrc_curl_opts = {
   \ '--connect-timeout' : 10,
   \ '-L': '',
   \ '--max-time': 60,
-  \ '--ipv4': ''
+  \ '--ipv4': '',
+  \ '-i': '',
+  \ '-v': ''
   \}
+let g:vrc_split_request_body = 1
 
 " Json language support
 Plug 'elzr/vim-json'
@@ -257,6 +260,9 @@ let g:lightline.tabline_subseparator = { 'left': "\ue0bb", 'right': "\ue0bb" }
 Plug 'BarretRen/vim-colorscheme'
 Plug 'HenryNewcomer/vim-theme-underflow'
 Plug 'KKPMW/oldbook-vim'
+Plug 'KKPMW/distilled-vim'
+Plug 'KKPMW/oldbook-vim'
+Plug 'Marzipanzerfaust/vim-colors-jlc'
 Plug 'abnt713/vim-hashpunk'
 Plug 'ajmwagar/vim-deus'
 Plug 'altercation/vim-colors-solarized'
@@ -266,6 +272,10 @@ Plug 'dennougorilla/azuki.vim'
 Plug 'jnurmine/Zenburn'
 Plug 'junegunn/seoul256.vim'
 Plug 'liuchengxu/space-vim-theme'
+Plug 'arzg/vim-oldbook8'
+Plug 'dennougorilla/azuki.vim'
+Plug 'jnurmine/Zenburn'
+Plug 'junegunn/seoul256.vim'
 Plug 'machakann/vim-colorscheme-tatami'
 Plug 'mhartington/oceanic-next'
 Plug 'morhetz/gruvbox'
@@ -278,6 +288,11 @@ Plug 'smallwat3r/vim-hashpunk-sw'
 Plug 'szorfein/darkest-space'
 Plug 'thenewvu/vim-colors-sketching'
 Plug 'victorze/foo'
+Plug 'sainnhe/vim-color-grimoire'
+Plug 'smallwat3r/vim-hashpunk-sw'
+Plug 'szorfein/darkest-space'
+Plug 'theJian/Mogao'
+Plug 'thenewvu/vim-colors-sketching'
 Plug 'wimstefan/vim-artesanal'
 Plug 'xstrex/FireCode.vim'
 Plug 'yuttie/inkstained-vim'
