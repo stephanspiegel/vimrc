@@ -9,4 +9,6 @@ set guioptions-=r   "remove right-hand scroll bar
 set guioptions-=L   "remove lef-hand scroll bar
 set guioptions-=e   "don't show guitabs
 set lines=999 columns=999
+set fillchars=vert:┃ " for vsplits
+set fillchars+=fold:· " for folds
 

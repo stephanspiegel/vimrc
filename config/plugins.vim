@@ -53,7 +53,7 @@ let g:vim_json_syntax_conceal = 0
 Plug 'tpope/vim-capslock'
 
 " Pear Tree: A painless, powerful Vim auto-pair plugin.
-Plug 'https://github.com/tmsvg/pear-tree'
+Plug 'tmsvg/pear-tree'
 " enable smart pairs
 let g:pear_tree_smart_openers = 0
 let g:pear_tree_smart_closers = 0
@@ -107,6 +107,16 @@ function! ToggleCalendar()
   end
 endfunction
 
+" QuickRun: run code in buffer
+Plug 'thinca/vim-quickrun'
+
+" DoGe: Documentation generator
+Plug 'kkoomen/vim-doge'
+
+" Refactoring
+"
+" qfreplace: Refactor using quickfix
+Plug 'thinca/vim-qfreplace'
 
 " Ale: linter
 Plug 'w0rp/ale'
@@ -219,15 +229,42 @@ let g:session_directory = '~/.vim/sessions'
 Plug 'sjl/gundo.vim'
 nnoremap <leader>u :GundoToggle<CR>
 
-
 " Coc: language server support
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " Vim Spotlightify: better search highlighting
 Plug 'fcpg/vim-spotlightify'
 
+" FZF: fuzzy search
+Plug 'junegunn/fzf.vim'
+
+" VimIndentObject: indentation level as text object
+Plug 'michaeljsmith/vim-indent-object'
+
+" Peekaboo: show content of registers
+Plug 'junegunn/vim-peekaboo'
+
+" TestVim: unit testing framework
+Plug 'janko/vim-test'
+
+" Projectionist: Buffer switching
+Plug 'tpope/vim-projectionist'
+
 " Vim plugin authoring
+""""""""""""""""""""""
+
+" Scriptease: plugin authoring utilities
+Plug 'tpope/vim-scriptease'
+
+" Vader: testing frameworkd
 Plug 'junegunn/vader.vim'
+
+" Under construction
+Plug '~/Projects/vim/vim-kraftwerk'
+set runtimepath+=%HOME/Projects/vim/vim-kraftwerk
+
+" Appearance
+""""""""""""
 
 " Bar Themes
 Plug 'itchyny/lightline.vim'
@@ -239,9 +276,9 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
-      \   'sfdxuser': 'sfdx#ShowDefaultUser'
+      \   'sfdxuser': 'SfdxShowDefaultUser'
       \ }
-      \ }
+    \ }
 let g:lightline.separator = { 'left': "\ue0b8", 'right': "\ue0be" }
 let g:lightline.subseparator = { 'left': "\ue0b9", 'right': "\ue0b9" }
 let g:lightline.tabline_separator = { 'left': "\ue0bc", 'right': "\ue0ba" }
@@ -252,7 +289,10 @@ let g:lightline.tabline_subseparator = { 'left': "\ue0bb", 'right': "\ue0bb" }
 " let g:airline_theme='base16'
 " let g:airline#extensions#tagbar#enabled = 0
 " let g:airline#extensions#ale#enabled = 1
-
+" Theme switcher
+Plug 'xolox/vim-colorscheme-switcher'
+let g:colorscheme_switcher_keep_background = 1
+let g:colorscheme_switcher_exclude_builtins = 1
 " Themes
 Plug 'BarretRen/vim-colorscheme'
 Plug 'HenryNewcomer/vim-theme-underflow'
