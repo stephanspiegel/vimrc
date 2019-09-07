@@ -33,6 +33,10 @@ if executable('rg')
     let g:ctrlp_use_caching = 0
 endif
 
+" FZF: fuzzy finder
+Plug 'junegunn/fzf',  { 'dir': '~/.fzf' }
+Plug 'junegunn/fzf.vim'
+
 " Table Mode: create and manipulate ASCII tables
 Plug 'dhruvasagar/vim-table-mode'
 
@@ -111,6 +115,12 @@ function! ToggleCalendar()
 endfunction
 
 
+" Open Browser: Open URLs in browser
+Plug 'tyru/open-browser.vim'
+
+" Previm: Preview markdown (and other formats that render to HTML)
+Plug 'previm/previm'
+
 " Ale: linter
 Plug 'w0rp/ale'
 
@@ -188,6 +198,9 @@ Plug 'rcaputo/vim-ledger_x'
 " TODO: todo.txt support
 Plug 'vim-scripts/todo-txt.vim'
 
+" HyperList: hyperlist support
+Plug 'isene/hyperlist.vim'
+
 " unimpaired.vim
 Plug 'tpope/vim-unimpaired'
 
@@ -232,6 +245,9 @@ Plug 'fcpg/vim-spotlightify'
 " Vim plugin authoring
 Plug 'junegunn/vader.vim'
 
+Plug '~/.vim/vim-kraftwerk'
+set runtimepath+=%HOME%/.vim/vim-kraftwerk
+
 " Bar Themes
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
@@ -242,13 +258,21 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
-      \   'sfdxuser': 'sfdx#ShowDefaultUser'
+      \   'sfdxuser': 'sfdx#ShowDefaultUser',
+      \   'fullFilePath': 'FilePathForLightLine'
       \ }
       \ }
 let g:lightline.separator = { 'left': "\ue0b8", 'right': "\ue0be" }
 let g:lightline.subseparator = { 'left': "\ue0b9", 'right': "\ue0b9" }
 let g:lightline.tabline_separator = { 'left': "\ue0bc", 'right': "\ue0ba" }
 let g:lightline.tabline_subseparator = { 'left': "\ue0bb", 'right': "\ue0bb" }
+let g:lightline.tabline = {
+      \ 'left': [ [ 'tabs' ] ],
+      \ 'right': [ [ 'fullFilePath' ] ] }
+
+function! FilePathForLightLine()
+  return expand('%:p')
+endfunction
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 " let g:airline_powerline_fonts = 1
@@ -259,7 +283,6 @@ let g:lightline.tabline_subseparator = { 'left': "\ue0bb", 'right': "\ue0bb" }
 " Themes
 Plug 'BarretRen/vim-colorscheme'
 Plug 'HenryNewcomer/vim-theme-underflow'
-Plug 'KKPMW/oldbook-vim'
 Plug 'KKPMW/distilled-vim'
 Plug 'KKPMW/oldbook-vim'
 Plug 'Marzipanzerfaust/vim-colors-jlc'
@@ -268,14 +291,11 @@ Plug 'ajmwagar/vim-deus'
 Plug 'altercation/vim-colors-solarized'
 Plug 'aonemd/kuroi.vim'
 Plug 'arcticicestudio/nord-vim'
-Plug 'dennougorilla/azuki.vim'
-Plug 'jnurmine/Zenburn'
-Plug 'junegunn/seoul256.vim'
-Plug 'liuchengxu/space-vim-theme'
 Plug 'arzg/vim-oldbook8'
 Plug 'dennougorilla/azuki.vim'
 Plug 'jnurmine/Zenburn'
 Plug 'junegunn/seoul256.vim'
+Plug 'liuchengxu/space-vim-theme'
 Plug 'machakann/vim-colorscheme-tatami'
 Plug 'mhartington/oceanic-next'
 Plug 'morhetz/gruvbox'
@@ -286,13 +306,9 @@ Plug 'sainnhe/vim-color-atlantis'
 Plug 'sainnhe/vim-color-grimoire'
 Plug 'smallwat3r/vim-hashpunk-sw'
 Plug 'szorfein/darkest-space'
-Plug 'thenewvu/vim-colors-sketching'
-Plug 'victorze/foo'
-Plug 'sainnhe/vim-color-grimoire'
-Plug 'smallwat3r/vim-hashpunk-sw'
-Plug 'szorfein/darkest-space'
 Plug 'theJian/Mogao'
 Plug 'thenewvu/vim-colors-sketching'
+Plug 'victorze/foo'
 Plug 'wimstefan/vim-artesanal'
 Plug 'xstrex/FireCode.vim'
 Plug 'yuttie/inkstained-vim'
