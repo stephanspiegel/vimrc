@@ -45,5 +45,9 @@ set background=dark
 
 set laststatus=2    " always show statusline 
 set noshowmode      " we show the mode in light-line, so don't show again
+set showtabline=2   " always show tabline
+
+" Use new diff options
+set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 
 let g:session_autoload = 'no'
