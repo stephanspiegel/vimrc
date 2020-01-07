@@ -16,11 +16,14 @@ tnoremap <F4> <C-\><C-n>:Nuake<CR>
 
 " Identline: show indent levels
 Plug 'Yggdroot/indentLine'
-let g:indentLine_char = '┊'
+let g:indentLine_char = ''
 let g:indentLine_fileTypeExclude = ['help']
 
 " Gitgutter: display git diff info
 Plug 'airblade/vim-gitgutter'
+
+" Polyglot: Multi-language support
+Plug 'sheerun/vim-polyglot'
 
 " CSV.vim: csv support
 Plug 'chrisbra/csv.vim'
@@ -69,6 +72,9 @@ let g:pear_tree_smart_backspace = 0
 " Commentary: comment out lines of code
 Plug 'tpope/vim-commentary'
 
+" DirDiff: diff directories in vim
+Plug 'will133/vim-dirdiff'
+
 " Neomake: build automation
 Plug 'neomake/neomake'
 
@@ -90,35 +96,23 @@ Plug 'neowit/vim-force.com'
 
 Plug 'tpope/vim-fugitive'
 
+" Twiggy: git branch management
+Plug 'sodapopcan/vim-twiggy'
+
 " Rainbow: show matching braces in matching colors
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
 Plug 'mattn/calendar-vim'
-Plug 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-autocmd FileType vimwiki map <buffer> <Leader>x <Plug>VimwikiToggleListItem
-autocmd FileType vimwiki map <buffer> <Leader>c :call ToggleCalendar()<CR>
-autocmd BufRead,BufNewFile *.md set filetype=vimwiki.markdown
-function! ToggleCalendar()
-  execute ":Calendar"
-  if exists("g:calendar_open")
-    if g:calendar_open == 1
-      execute "q"
-      unlet g:calendar_open
-    else
-      g:calendar_open = 1
-    end
-  else
-    let g:calendar_open = 1
-  end
-endfunction
+"
+" Bookmarks: add bookmarks and annotations
+Plug 'MattesGroeger/vim-bookmarks'
 
 " QuickRun: run code in buffer
 Plug 'thinca/vim-quickrun'
 
 " DoGe: Documentation generator
-Plug 'kkoomen/vim-doge'
+" Plug 'kkoomen/vim-doge'
 
 " Refactoring
 "
@@ -127,6 +121,13 @@ Plug 'thinca/vim-qfreplace'
 
 " Open Browser: Open URLs in browser
 Plug 'tyru/open-browser.vim'
+
+" Markdown: markdown support
+Plug 'plasticboy/vim-markdown'
+
+
+" Markdown drawer: markdown navigation
+Plug 'Scuilion/markdown-drawer'
 
 " Previm: Preview markdown (and other formats that render to HTML)
 Plug 'previm/previm'
@@ -187,6 +188,9 @@ Plug 'jremmen/vim-ripgrep'
 " Surround: surround with quotes, brackets, etc.
 Plug 'tpope/vim-surround'
 
+" Dadbod: Database support
+Plug 'tpope/vim-dadbod'
+
 " Support for ledger accounting files
 Plug 'ledger/vim-ledger'
 let g:ledger_default_commodity = 'USD'
@@ -210,6 +214,9 @@ Plug 'vim-scripts/todo-txt.vim'
 
 " HyperList: hyperlist support
 Plug 'isene/hyperlist.vim'
+
+"Vimoutliner: outlining toold
+Plug 'vimoutliner/vimoutliner'
 
 " unimpaired.vim
 Plug 'tpope/vim-unimpaired'
@@ -277,7 +284,16 @@ Plug 'junegunn/vader.vim'
 
 " Under construction
 Plug '~/Projects/vim/vim-kraftwerk'
-set runtimepath+=%HOME/Projects/vim/vim-kraftwerk
+set runtimepath+=$HOME/Projects/vim/vim-kraftwerk
+
+" Defx: file browser
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 " Appearance
 """"""""""""
@@ -339,8 +355,11 @@ Plug 'morhetz/gruvbox'
 Plug 'nightsense/stellarized'
 Plug 'rakr/vim-one'
 Plug 'rakr/vim-two-firewatch'
-Plug 'sainnhe/vim-color-atlantis'
-Plug 'sainnhe/vim-color-grimoire'
+Plug 'sainnhe/gruvbox-material'
+" Plug 'sainnhe/vim-color-atlantis'
+" Plug 'sainnhe/vim-color-grimoire'
+Plug 'sainnhe/neon'
+Plug 'sainnhe/edge'
 Plug 'smallwat3r/vim-hashpunk-sw'
 Plug 'szorfein/darkest-space'
 Plug 'theJian/Mogao'
@@ -350,6 +369,10 @@ Plug 'wimstefan/vim-artesanal'
 Plug 'xstrex/FireCode.vim'
 Plug 'yuttie/inkstained-vim'
 let g:two_firewatch_italics=1
+
+" Devicons: Icons support
+" Always load the vim-devicons as the very last one.
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
