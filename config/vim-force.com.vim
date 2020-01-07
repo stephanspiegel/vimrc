@@ -6,15 +6,16 @@ if has('unix')
     let g:apex_temp_folder='/tmp/apex/temp'
     let g:apex_workspace_path="/home/stephan/Projects/"
 elseif has("win32")
-    " let &runtimepath=&runtimepath . ',c:\\tools\\vimfiles\\vim-force.com'
-    let g:apex_tooling_force_dot_com_path="c:\\tools\\vimfiles\\vim-force.com\\tooling-force.com-0.4.4.0.jar"
-    let g:apex_properties_folder="c:\\users\\sspiegel\\apex-properties"
-    let g:apex_backup_folder="c:\\tools\\vimfiles\\apex\\backup"
-    let g:apex_temp_folder="c:\\tools\\vimfiles\\apex\\temp"
-    let g:apex_diff_cmd='kdiff3'
+    let &runtimepath=&runtimepath . '%HOMEPATH%\\vimfiles\\bundle\\vim-force.com'
+    let g:apex_tooling_force_dot_com_path="%HOMEPATH%\\tools\\vim-force.com\\tooling-force.com-0.4.4.0.jar"
+    let g:apex_properties_folder="%HOMEPATH%\\apex-properties"
+    let g:apex_backup_folder="%HOMEPATH%\\tools\\vim-force.com\\backup"
+    let g:apex_temp_folder="%HOMEPATH%\\tools\\vim-force.com\\temp"
+    let g:apex_workspace_path="%HOMEPATH%\\Projects\\Salesforce"
 endif
 autocmd FileType apexcode nnoremap <buffer> <C-]> :call apexComplete#goToSymbol()<Enter>
 let g:apex_server_timeoutSec=60*30 " allow server to wait for new connections within 30 minutes
+let g:apex_API_version = 47.0
 
 function! s:setApexShortcuts()
 
