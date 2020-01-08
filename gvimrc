@@ -1,5 +1,6 @@
 if has('win32')
-    set guifont=DejaVu_Sans_Mono_for_Powerline:h10:cANSI:qDRAFT
+    set guifont=Inconsolata_NF:h12:W500:cANSI:qDRAFT
+    set renderoptions=type:directx
 else
     set guifont=FuraCode\ Nerd\ Font\ 12
 endif
