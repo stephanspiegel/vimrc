@@ -22,6 +22,9 @@ let g:indentLine_fileTypeExclude = ['help']
 " Gitgutter: display git diff info
 Plug 'airblade/vim-gitgutter'
 
+" DirDiff: diff directories recursively
+Plug 'will133/vim-dirdiff'
+
 " CSV.vim: csv support
 Plug 'chrisbra/csv.vim'
 
@@ -55,6 +58,9 @@ let g:vrc_split_request_body = 1
 " Json language support
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
+
+" YAML: YAML support
+Plug 'mrk21/yaml-vim'
 
 "CapsLock: software capslock
 Plug 'tpope/vim-capslock'
@@ -95,11 +101,6 @@ Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
 Plug 'mattn/calendar-vim'
-Plug 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-autocmd FileType vimwiki map <buffer> <Leader>x <Plug>VimwikiToggleListItem
-autocmd FileType vimwiki map <buffer> <Leader>c :call ToggleCalendar()<CR>
-autocmd BufRead,BufNewFile *.md set filetype=vimwiki.markdown
 function! ToggleCalendar()
   execute ":Calendar"
   if exists("g:calendar_open")
@@ -128,8 +129,19 @@ Plug 'thinca/vim-qfreplace'
 " Open Browser: Open URLs in browser
 Plug 'tyru/open-browser.vim'
 
+" Markdown
+ 
+" MKDX: markdown swiss army knife
+Plug 'SidOfc/mkdx', { 'for': 'markdown' }
+
+" Markdown: more markdown support
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+
+" Markdown Drawer: simplify navigation
+Plug 'Scuilion/markdown-drawer', { 'for': 'markdown' }
+
 " Previm: Preview markdown (and other formats that render to HTML)
-Plug 'previm/previm'
+Plug 'previm/previm', { 'for': 'markdown' }
 
 " Ale: linter
 Plug 'w0rp/ale'
@@ -197,7 +209,7 @@ let g:ledger_date_format = '%Y-%m-%d'
 let g:ledger_align_at = 60
 augroup Ledger
   autocmd!
-  autocmd FileType ledger nnoremap <silent> <leader>c :call ledger#transaction_state_set(line('.'), '*')<CR>
+  autocmd FileType ledger nnoremap <silent> <leader>c :call ledger#transaction_state_toggle(line('.'), ' *')<CR>
   autocmd FileType ledger inoremap <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<CR>
   autocmd FileType ledger vnoremap <silent> <Tab> :LedgerAlign<CR>
 augroup END
@@ -207,9 +219,6 @@ Plug 'rcaputo/vim-ledger_x'
 
 " TODO: todo.txt support
 Plug 'vim-scripts/todo-txt.vim'
-
-" HyperList: hyperlist support
-Plug 'isene/hyperlist.vim'
 
 " unimpaired.vim
 Plug 'tpope/vim-unimpaired'
@@ -251,20 +260,23 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 " Vim Spotlightify: better search highlighting
 Plug 'fcpg/vim-spotlightify'
 
-" FZF: fuzzy search
-Plug 'junegunn/fzf.vim'
-
 " VimIndentObject: indentation level as text object
 Plug 'michaeljsmith/vim-indent-object'
 
 " Peekaboo: show content of registers
 Plug 'junegunn/vim-peekaboo'
 
+" Goyo: distraction free writing
+Plug 'junegunn/goyo.vim'
+
 " TestVim: unit testing framework
 Plug 'janko/vim-test'
 
 " Projectionist: Buffer switching
 Plug 'tpope/vim-projectionist'
+
+" Tidal: support tidalcycles music live coding language
+Plug 'flupe/vim-tidal'
 
 " Vim plugin authoring
 """"""""""""""""""""""
