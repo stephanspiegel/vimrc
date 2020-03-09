@@ -6,12 +6,13 @@ if has('unix')
     let g:apex_temp_folder='/tmp/apex/temp'
     let g:apex_workspace_path="/home/stephan/Projects/"
 elseif has("win32")
-    let &runtimepath=&runtimepath . '%HOMEPATH%\\vimfiles\\bundle\\vim-force.com'
-    let g:apex_tooling_force_dot_com_path="%HOMEPATH%\\tools\\vim-force.com\\tooling-force.com-0.4.4.0.jar"
-    let g:apex_properties_folder="%HOMEPATH%\\apex-properties"
-    let g:apex_backup_folder="%HOMEPATH%\\tools\\vim-force.com\\backup"
-    let g:apex_temp_folder="%HOMEPATH%\\tools\\vim-force.com\\temp"
-    let g:apex_workspace_path="%HOMEPATH%\\Projects\\Salesforce"
+    " let g:apex_java_cmd = '$HOMEPATH\\scoop\\apps\\openjdk13\\current\\bin\\java.exe'
+    let &runtimepath=&runtimepath . '$HOMEPATH\\vimfiles\\bundle\\vim-force.com'
+    let g:apex_tooling_force_dot_com_path=expand('$HOMEPATH') . '\\tools\\vim-force.com\\tooling-force.com-0.4.7.0.jar'
+    let g:apex_properties_folder=expand('$HOMEPATH') . '\\apex-properties'
+    let g:apex_backup_folder=expand('$HOMEPATH') . '\\tools\\vim-force.com\\backup'
+    let g:apex_temp_folder=expand('$HOMEPATH') . '\\tools\\vim-force.com\\temp'
+    let g:apex_workspace_path=expand('$HOMEPATH') . '\\Projects\\Salesforce'
 endif
 autocmd FileType apexcode nnoremap <buffer> <C-]> :call apexComplete#goToSymbol()<Enter>
 let g:apex_server_timeoutSec=60*30 " allow server to wait for new connections within 30 minutes

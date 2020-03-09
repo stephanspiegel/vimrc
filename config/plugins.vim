@@ -157,7 +157,7 @@ let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save =1
 let g:ale_lint_on_filetype_changed = 1
-let g:ale_java_pmd_options = '-R rulesets/apex/ruleset.xml'
+let g:ale_apex_pmd_options = '-R '. expand('$HOMEPATH') . '\pmd\rulesets\apex\ruleset.xml'
 
 " Emmet: HTML templating
 Plug 'mattn/emmet-vim'
