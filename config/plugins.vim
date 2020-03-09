@@ -5,6 +5,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin('~/vimfiles/bundle')
 
+" Asyncrun: run shell commands asyncronously
+Plug 'skywind3000/asyncrun.vim'
+
 " Elm: elm language support
 Plug 'ElmCast/elm-vim'
 
