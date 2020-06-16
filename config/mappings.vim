@@ -49,4 +49,3 @@ nnoremap gdm :diffget //3<CR>
 
 " FZF mappings
 nnoremap <D-p> :Files<CR>
-nnoremap 
