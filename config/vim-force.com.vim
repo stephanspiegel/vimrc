@@ -1,4 +1,11 @@
-if has('unix')
+if has('gui_macvim')
+    let &runtimepath=&runtimepath . ',~/.vim/bundle/vim-force.com'
+    let g:apex_tooling_force_dot_com_path='/Users/sspiegel/tooling-force.com/tooling-force.com-assembly-v0.4.2.0.jar'
+    let g:apex_properties_folder='/Users/sspiegel/apex-properties'
+    let g:apex_backup_folder='/tmp/apex/backup'
+    let g:apex_temp_folder='/tmp/apex/temp'
+    let g:apex_workspace_path="/Users/sspiegel/Projects/"
+elseif has('unix')
     let &runtimepath=&runtimepath . ',~/.vim/bundle/vim-force.com'
     let g:apex_tooling_force_dot_com_path='/home/stephan/tooling-force.com/tooling-force.com-assembly-v0.4.2.0.jar'
     let g:apex_properties_folder='/home/stephan/apex-properties'
