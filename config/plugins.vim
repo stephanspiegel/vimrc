@@ -153,14 +153,17 @@ Plug 'Scuilion/markdown-drawer', { 'for': 'markdown' }
 Plug 'previm/previm', { 'for': 'markdown' }
 
 " Ale: linter
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save =1
 let g:ale_lint_on_filetype_changed = 1
-let g:ale_apex_pmd_options = '-R '. expand('$HOMEPATH') . '\pmd\rulesets\apex\ruleset.xml'
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+highlight ALEWarning ctermbg=none cterm=underline
+let g:ale_apex_pmd_options = 'pmd -R '. expand('$HOME') . '/pmd/rulesets/apex/ruleset.xml'
 
 " Emmet: HTML templating
 Plug 'mattn/emmet-vim'
@@ -178,6 +181,9 @@ Plug 'vim-scripts/taglist.vim'
 Plug 'majutsushi/tagbar'
 " show tags in the order they appear in the source
 let g:tagbar_sort = 0
+" show tagbar at top
+let g:tagbar_vertical = 10
+let g:tagbar_left = 1
 
 " Ultisnips: Snippets management
 Plug 'sirver/ultisnips'
@@ -348,6 +354,9 @@ endfunction
 Plug 'xolox/vim-colorscheme-switcher'
 let g:colorscheme_switcher_keep_background = 1
 let g:colorscheme_switcher_exclude_builtins = 1
+" All the themes!
+Plug 'flazz/vim-colorschemes'
+
 " Themes
 Plug 'BarretRen/vim-colorscheme'
 Plug 'HenryNewcomer/vim-theme-underflow'
@@ -384,6 +393,7 @@ Plug 'wimstefan/vim-artesanal'
 Plug 'xstrex/FireCode.vim'
 Plug 'yuttie/inkstained-vim'
 let g:two_firewatch_italics=1
+Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
 
 " Devicons: Icons support
 " Always load the vim-devicons as the very last one.
@@ -391,6 +401,6 @@ Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
-colorscheme gruvbox
+colorscheme tempus_tempest
 call neomake#configure#automake('w')
 
