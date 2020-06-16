@@ -8,8 +8,8 @@ inoremap jk <ESC>
 " Toggle light/dark color theme
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark")<CR>
 
-" F8 to toggle tag bar
-nmap <F8> :TagbarToggle<CR>
+" F7 to toggle tag bar
+nmap <F7> :TagbarToggle<CR>
 
 " Easy split navigation
 map <C-j> <C-w>j
@@ -43,3 +43,10 @@ endif
 " Uppercase in insert mode
 inoremap <c-u> <esc>viwUea
 
+" Fugitive conflict resolution
+nnoremap gdt :diffget //2<CR>
+nnoremap gdm :diffget //3<CR>
+
+" FZF mappings
+nnoremap <D-p> :Files<CR>
+nnoremap 
