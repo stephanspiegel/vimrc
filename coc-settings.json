@@ -4,9 +4,9 @@
             "command": "java",
             "args": [
                 "-cp", 
-                "/home/stephan/.vscode-oss/extensions/salesforce.salesforcedx-vscode-apex-46.7.0/out/apex-jorje-lsp.jar",
+                "/Users/sspiegel/apex-lsp/apex-jorje-lsp.jar",
                 "-Ddebug.internal.errors=true",
-                "-Ddebug.semantic.errors=${enableSemanticErrors}",
+                "-Ddebug.semantic.errors=true",
                 "apex.jorje.lsp.ApexLanguageServerLauncher"
             ],
             "filetypes": [

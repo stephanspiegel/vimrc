@@ -4,7 +4,7 @@ ${1:SObjectType} ${2:sObjectName} = ($1)clsTestFactory.createSObject(new $1(
 ));
 endsnippet
 snippet debug "Debug variable or expression"
-System.debug('${1}: '+$1);
+System.debug(LoggingLevel.DEBUG, '${1}: '+$1);
 endsnippet
 snippet test "Unit test method"
 @isTest
@@ -41,7 +41,7 @@ try{
 }
 endsnippet  
 snippet todo "todo comment"
-// TODO: stephan.spiegel:${1:`!v strftime("0%Y-%m-%d-%a")`} ${2}
+@todo ${1:`!v strftime("%Y-%m-%d")`} Stephan Spiegel <sspiegel@zipari.com> ${2}
 endsnippet
 snippet lazym "Lazy-loaded member variable"
 private ${1:String} ${2:variableName} {
@@ -117,13 +117,11 @@ if($1.containsKey($2)) {
 }
 endsnippet
 snippet docm "ApexDoc method comment"
-/**
-* @description $1
-*
-  * @param $2 $3
-*   $0
-  * @return 
-*/
+    /**
+    * @description $1
+    * @param $2 $3
+    * @return $0
+    */
 endsnippet
 snippet doc "ApexDoc comment"
 /**

@@ -1,9 +1,10 @@
 if has('win32')
     set guifont=Inconsolata_NF:h12:W500:cANSI:qDRAFT
     set renderoptions=type:directx
+else if has('gui_macvim')
+    set guifont=FiraCode\ Nerd\ Font:h14
 else
     set guifont=Liberation\ Mono\ for\ Powerline\ 14
-
 endif
 set guioptions-=m   "remove menu bar
 set guioptions-=T   "remove toolbar
@@ -14,4 +15,7 @@ set guioptions-=L   "remove left-hand scroll bar
 set lines=999 columns=999
 set fillchars=vert:┃ " for vsplits
 set fillchars+=fold:· " for folds
-
+if has("gui_macvim")
+    macmenu &File.Print key=<nop>
+    set macligatures
+endif

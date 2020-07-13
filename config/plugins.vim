@@ -105,6 +105,9 @@ Plug 'tpope/vim-fugitive'
 " Twiggy: git branch management
 Plug 'sodapopcan/vim-twiggy'
 
+" Diffconflicts: Better git merge conflict handling
+Plug 'whiteinge/diffconflicts'
+
 " Rainbow: show matching braces in matching colors
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
@@ -153,14 +156,17 @@ Plug 'Scuilion/markdown-drawer', { 'for': 'markdown' }
 Plug 'previm/previm', { 'for': 'markdown' }
 
 " Ale: linter
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save =1
 let g:ale_lint_on_filetype_changed = 1
-let g:ale_java_pmd_options = '-R rulesets/apex/ruleset.xml'
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+highlight ALEWarning ctermbg=none cterm=underline
+let g:ale_apex_pmd_options = 'pmd -R '. expand('$HOME') . '/pmd/rulesets/apex/ruleset.xml'
 
 " Emmet: HTML templating
 Plug 'mattn/emmet-vim'
@@ -178,6 +184,9 @@ Plug 'vim-scripts/taglist.vim'
 Plug 'majutsushi/tagbar'
 " show tags in the order they appear in the source
 let g:tagbar_sort = 0
+" show tagbar at top
+let g:tagbar_vertical = 10
+let g:tagbar_left = 1
 
 " Ultisnips: Snippets management
 Plug 'sirver/ultisnips'
@@ -348,12 +357,14 @@ endfunction
 Plug 'xolox/vim-colorscheme-switcher'
 let g:colorscheme_switcher_keep_background = 1
 let g:colorscheme_switcher_exclude_builtins = 1
+" All the themes!
+Plug 'flazz/vim-colorschemes'
+
 " Themes
-Plug 'BarretRen/vim-colorscheme'
+Plug 'BarretRen/barret-vimcolor'
 Plug 'HenryNewcomer/vim-theme-underflow'
 Plug 'KKPMW/distilled-vim'
 Plug 'KKPMW/oldbook-vim'
-Plug 'Marzipanzerfaust/vim-colors-jlc'
 Plug 'abnt713/vim-hashpunk'
 Plug 'ajmwagar/vim-deus'
 Plug 'altercation/vim-colors-solarized'
@@ -371,10 +382,9 @@ Plug 'nightsense/stellarized'
 Plug 'rakr/vim-one'
 Plug 'rakr/vim-two-firewatch'
 Plug 'sainnhe/gruvbox-material'
-" Plug 'sainnhe/vim-color-atlantis'
-" Plug 'sainnhe/vim-color-grimoire'
-Plug 'sainnhe/neon'
 Plug 'sainnhe/edge'
+Plug 'sainnhe/forest-night'
+Plug 'sainnhe/sonokai'
 Plug 'smallwat3r/vim-hashpunk-sw'
 Plug 'szorfein/darkest-space'
 Plug 'theJian/Mogao'
@@ -383,7 +393,39 @@ Plug 'victorze/foo'
 Plug 'wimstefan/vim-artesanal'
 Plug 'xstrex/FireCode.vim'
 Plug 'yuttie/inkstained-vim'
+
+" Monochrome themes
+Plug 'https://github.com/pgdouyon/vim-yin-yang'
+Plug 'https://github.com/ewilazarus/preto'
+Plug 'https://github.com/chriskempson/base16-vim'
+Plug 'https://github.com/andreasvc/vim-256noir'
+Plug 'https://github.com/davidosomething/vim-colors-meh'
+Plug 'https://github.com/pbrisbin/vim-colors-off'
+Plug 'https://github.com/Jorengarenar/vim-darkness'
+Plug 'https://github.com/owickstrom/vim-colors-paramount'
+Plug 'https://gitlab.com/rj-white/vim-colors-paramountblue'
+Plug 'https://github.com/nikolvs/vim-sunbather'
+Plug 'https://github.com/reedes/vim-colors-pencil'
+Plug 'https://github.com/huyvohcmc/atlas.vim'
+Plug 'https://github.com/Lokaltog/vim-monotone'
+Plug 'https://github.com/fxn/vim-monochrome'
+Plug 'https://github.com/robertmeta/nofrils'
+Plug 'https://github.com/zaki/zazen'
+Plug 'https://github.com/t184256/vim-boring'
+Plug 'https://github.com/KKPMW/distilled-vim'
+Plug 'https://github.com/axvr/photon.vim'
+Plug 'https://git.sr.ht/~romainl/vim-bruin'
+Plug 'https://github.com/andreypopp/vim-colors-plain'
+Plug 'https://github.com/danishprakash/vim-yami'
+Plug 'https://github.com/ajgrf/parchment'
+Plug 'https://github.com/jaredgorski/fogbell.vim'
+Plug 'https://github.com/LuRsT/austere.vim'
+Plug 'https://github.com/hardselius/warlock'
+Plug 'https://github.com/cideM/yui'
+Plug 'https://github.com/aditya-azad/candle-grey'
+
 let g:two_firewatch_italics=1
+Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
 
 " Devicons: Icons support
 " Always load the vim-devicons as the very last one.
@@ -391,6 +433,6 @@ Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
-colorscheme gruvbox
+colorscheme tempus_tempest
 call neomake#configure#automake('w')
 

@@ -1,7 +1,7 @@
 " Author: Stephan Spiegel <stephan@stephanspiegel.com>
 " Description: PMD for Apex files
 
-function! ale_linters#apexcode#pmd#Handle(buffer, lines) abort
+function! config#ale_linters#apex#pmd#ale_apexcode_pmd#Handle(buffer, lines) abort
     let l:pattern = '"\(\d\+\)",".*","\(.\+\)","\(\d\+\)","\(\d\+\)","\(.\+\)","\(.\+\)","\(.\+\)"$'
     let l:output = []
 
@@ -17,9 +17,9 @@ function! ale_linters#apexcode#pmd#Handle(buffer, lines) abort
     return l:output
 endfunction
 
-function! plugin#ale_apex_pmd#GetCommand(buffer) abort
+function! config#ale_linters#apex#pmd#ale_apexcode_pmd#GetCommand(buffer) abort
     return 'pmd '
-    \ . ale#Var(a:buffer, 'apex_pmd_options')
+    \ . ale#Var(a:buffer, 'ale_apex_pmd_options')
     \ . ' -f csv'
     \ . ' -d %t'
 endfunction
@@ -28,9 +28,9 @@ if !exists('g:ale_apex_pmd_options')
     let g:ale_apex_pmd_options = 'pmd -R rulesets/apex/ruleset.xml'
 endif
 
-call ale#linter#Define('apex', {
+call ale#linter#Define('apexcode', {
 \   'name': 'pmd',
 \   'executable': 'pmd',
-\   'command': function('ale_linters#apex#pmd#GetCommand'),
-\   'callback': 'ale_linters#apex#pmd#Handle',
+\   'command': function('config#ale_linters#apex#pmd#ale_apexcode_pmd#GetCommand'),
+\   'callback': 'config#ale_linters#apex#pmd#ale_apexcode_pmd#Handle',
 \})

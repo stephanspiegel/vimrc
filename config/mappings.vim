@@ -3,13 +3,13 @@ let mapleader = ' '
 inoremap jk <ESC>
 
 " edit .vimrc
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+:nnoremap <leader>ev :tabe $MYVIMRC<cr>
 
 " Toggle light/dark color theme
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark")<CR>
 
-" F8 to toggle tag bar
-nmap <F8> :TagbarToggle<CR>
+" F7 to toggle tag bar
+nmap <F7> :TagbarToggle<CR>
 
 " Easy split navigation
 map <C-j> <C-w>j
@@ -38,8 +38,17 @@ else
 endif
 
 " Easy buffer switching
+" all buffers
 :nnoremap <F5> :buffers<CR>:buffer<Space>
+" unsaved buffers
+:nnoremap <S-F5> :buffers +<CR>:buffer<Space>
 
 " Uppercase in insert mode
 inoremap <c-u> <esc>viwUea
 
+" Fugitive conflict resolution
+nnoremap gdt :diffget //2<CR>
+nnoremap gdm :diffget //3<CR>
+
+" FZF mappings
+nnoremap <D-p> :Files<CR>
