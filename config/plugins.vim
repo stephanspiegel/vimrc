@@ -128,7 +128,7 @@ endfunction
 Plug 'thinca/vim-quickrun'
 
 " DoGe: Documentation generator
-" Plug 'kkoomen/vim-doge'
+Plug 'kkoomen/vim-doge'
 
 " Refactoring
 "
