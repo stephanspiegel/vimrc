@@ -2,7 +2,8 @@ if has('win32')
     set guifont=Inconsolata_NF:h12:W500:cANSI:qDRAFT
     set renderoptions=type:directx
 else
-    set guifont=FuraCode\ Nerd\ Font\ 12
+    set guifont=Liberation\ Mono\ for\ Powerline\ 14
+
 endif
 set guioptions-=m   "remove menu bar
 set guioptions-=T   "remove toolbar
