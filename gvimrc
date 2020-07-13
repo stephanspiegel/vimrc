@@ -1,7 +1,7 @@
 if has('win32')
     set guifont=Inconsolata_NF:h12:W500:cANSI:qDRAFT
     set renderoptions=type:directx
-else if has('gui_macvim')
+elseif has('gui_macvim')
     set guifont=FiraCode\ Nerd\ Font:h14
 else
     set guifont=Liberation\ Mono\ for\ Powerline\ 14
