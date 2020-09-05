@@ -43,6 +43,9 @@ endif
 " unsaved buffers
 :nnoremap <S-F5> :buffers +<CR>:buffer<Space>
 
+" Coc-explorer
+:nmap <space>e :CocCommand explorer<CR>
+
 " Uppercase in insert mode
 inoremap <c-u> <esc>viwUea
 
