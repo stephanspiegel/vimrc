@@ -58,6 +58,10 @@ let g:vrc_curl_opts = {
   \}
 let g:vrc_split_request_body = 1
 
+" Vial Rest Client: Rest client
+Plug 'baverman/vial'
+Plug 'baverman/vial-http'
+
 " Json language support
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
@@ -80,6 +84,12 @@ Plug 'tpope/vim-commentary'
 
 " DirDiff: diff directories in vim
 Plug 'will133/vim-dirdiff'
+
+" ZFVimDirDiff: better diff directories in vim
+Plug 'ZSaberLv0/ZFVimDirDiff'
+
+" Vim Mkdir: when saving, make any directories that don't yet exist
+Plug 'pbrisbin/vim-mkdir'
 
 " Neomake: build automation
 Plug 'neomake/neomake'
@@ -107,6 +117,9 @@ Plug 'sodapopcan/vim-twiggy'
 
 " Diffconflicts: Better git merge conflict handling
 Plug 'whiteinge/diffconflicts'
+
+" Fzf Checkout: Check out branches with fzf
+Plug 'stsewd/fzf-checkout.vim'
 
 " Rainbow: show matching braces in matching colors
 Plug 'luochen1990/rainbow'
@@ -395,6 +408,7 @@ Plug 'xstrex/FireCode.vim'
 Plug 'yuttie/inkstained-vim'
 
 " Monochrome themes
+Plug 'camgunz/amber'
 Plug 'https://github.com/pgdouyon/vim-yin-yang'
 Plug 'https://github.com/ewilazarus/preto'
 Plug 'https://github.com/chriskempson/base16-vim'
