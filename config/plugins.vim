@@ -315,6 +315,9 @@ Plug 'tpope/vim-projectionist'
 " Tidal: support tidalcycles music live coding language
 Plug 'flupe/vim-tidal'
 
+" Vimwiki: wiki
+Plug 'vimwiki/vimwiki'
+
 " Vim plugin authoring
 """"""""""""""""""""""
 
