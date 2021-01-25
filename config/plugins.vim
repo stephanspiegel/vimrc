@@ -59,10 +59,6 @@ let g:vrc_curl_opts = {
   \}
 let g:vrc_split_request_body = 1
 
-" Vial Rest Client: Rest client
-Plug 'baverman/vial'
-Plug 'baverman/vial-http'
-
 " Json language support
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
@@ -249,6 +245,7 @@ let g:ledger_commodity_sep = ' '
 let g:ledger_decimal_sep = '.'
 let g:ledger_date_format = '%Y-%m-%d'
 let g:ledger_align_at = 60
+let g:ledger_bin = 'ledger'
 augroup Ledger
   autocmd!
   autocmd FileType ledger nnoremap <silent> <leader>c :call ledger#transaction_state_toggle(line('.'), ' *')<CR>
@@ -351,7 +348,8 @@ Plug 'janko/vim-test'
 Plug 'tpope/vim-projectionist'
 
 " Tidal: support tidalcycles music live coding language
-Plug 'flupe/vim-tidal'
+Plug 'tidalcycles/vim-tidal'
+let g:tidal_target = "terminal"
 
 " Vimwiki: wiki
 Plug 'vimwiki/vimwiki'
