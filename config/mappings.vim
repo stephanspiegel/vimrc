@@ -55,3 +55,7 @@ nnoremap gdm :diffget //3<CR>
 
 " FZF mappings
 nnoremap <D-p> :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>g :GitFiles<CR>
+nnoremap <leader>c :Commands<CR>
+nnoremap <leader>h :History<CR>
