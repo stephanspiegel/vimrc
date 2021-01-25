@@ -238,6 +238,8 @@ let g:ledger_decimal_sep = '.'
 let g:ledger_date_format = '%Y-%m-%d'
 let g:ledger_align_at = 60
 let g:ledger_bin = 'ledger'
+let g:ledger_main = 'ledger/personal/main.ledger'
+let g:ledger_extra_options = ' --pedantic --explicit --check-payees'
 augroup Ledger
   autocmd!
   autocmd FileType ledger nnoremap <silent> <leader>c :call ledger#transaction_state_toggle(line('.'), ' *')<CR>
