@@ -1,3 +1,4 @@
+"Bootstrap vim-plug if it's not installed yet
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -299,7 +300,6 @@ Plug 'sjl/gundo.vim'
 nnoremap <leader>u :GundoToggle<CR>
 
 " Coc: language server support
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Coc lsp mappings
@@ -355,6 +355,14 @@ Plug 'flupe/vim-tidal'
 
 " Vimwiki: wiki
 Plug 'vimwiki/vimwiki'
+let main_wiki = {}
+let main_wiki.path = '~/Projects/notes/'
+let main_wiki.auto_toc = 1
+let main_wiki.syntax = 'markdown'
+let main_wiki.extension = '.wiki'
+let g:vimwiki_list = [main_wiki]
+let g:vimwiki_global_ext = 0
+let g:markdown_folding = 1
 
 " Vim plugin authoring
 """"""""""""""""""""""
