@@ -4,7 +4,7 @@ if has('win32')
 elseif has('gui_macvim')
     set guifont=FiraCode\ Nerd\ Font:h14
 else
-    set guifont=Liberation\ Mono\ for\ Powerline\ 14
+    set guifont=FiraMono\ Nerd\ Font\ Mono\ 14
 endif
 set guioptions-=m   "remove menu bar
 set guioptions-=T   "remove toolbar
