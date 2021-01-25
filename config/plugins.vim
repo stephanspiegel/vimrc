@@ -154,6 +154,13 @@ Plug 'thinca/vim-qfreplace'
 " Open Browser: Open URLs in browser
 Plug 'tyru/open-browser.vim'
 
+" If it looks like URI, open an URI under cursor.
+" Otherwise, search a word under cursor.
+nmap gx <Plug>(openbrowser-smart-search)
+" If it looks like URI, open selected URI.
+" Otherwise, search selected word.
+vmap gx <Plug>(openbrowser-smart-search)
+
 " Markdown
  
 " MKDX: markdown swiss army knife
@@ -293,6 +300,37 @@ nnoremap <leader>u :GundoToggle<CR>
 
 " Coc: language server support
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Coc lsp mappings
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> sgr :sp<CR><Plug>(coc-references)
+nmap <silent> vgr :vsp<CR><Plug>(coc-references)
+
+command Reformat :call CocAction('format')
+
+" mapping errors and warnings navigation
+nnoremap ]x :call CocAction('diagnosticNext')<CR>
+nnoremap [x :call CocAction('diagnosticPrevious')<CR>
+
+" Show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
 
 " Vim Spotlightify: better search highlighting
 Plug 'fcpg/vim-spotlightify'
