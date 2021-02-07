@@ -50,4 +50,8 @@ set showtabline=2   " always show tabline
 " Use new diff options
 set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 
+" Persistent undo
+set undodir=~/.vim/undo-history
+set undofile
+
 let g:session_autoload = 'no'
