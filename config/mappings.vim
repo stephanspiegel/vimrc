@@ -8,9 +8,6 @@ inoremap jk <ESC>
 " Toggle light/dark color theme
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark")<CR>
 
-" F7 to toggle tag bar
-nmap <F7> :TagbarToggle<CR>
-
 " Easy split navigation
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -19,9 +16,6 @@ map <C-l> <C-w>l
 
 " Hide search highlights with <leader><cr>
 map <silent> <leader><cr> :nohlsearch<cr>
-
-" Show buffer selection on F5
-nnoremap <F5> :buffers<CR>:buffer<Space>
 
 "Copy file name to clipboard
 if has('win32')
@@ -43,19 +37,5 @@ endif
 " unsaved buffers
 :nnoremap <S-F5> :buffers +<CR>:buffer<Space>
 
-" Coc-explorer
-:nmap <space>e :CocCommand explorer<CR>
-
 " Uppercase in insert mode
 inoremap <c-u> <esc>viwUea
-
-" Fugitive conflict resolution
-nnoremap gdt :diffget //2<CR>
-nnoremap gdm :diffget //3<CR>
-
-" FZF mappings
-nnoremap <D-p> :Files<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>g :GitFiles<CR>
-nnoremap <leader>c :Commands<CR>
-nnoremap <leader>h :History<CR>

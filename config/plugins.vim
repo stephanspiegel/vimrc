@@ -14,9 +14,6 @@ Plug 'ElmCast/elm-vim'
 
 " Nuake: Quake style terminal
 Plug 'Lenovsky/nuake'
-nnoremap <F4> :Nuake<CR>
-inoremap <F4> <C-\><C-n>:Nuake<CR>
-tnoremap <F4> <C-\><C-n>:Nuake<CR>
 
 " Identline: show indent levels
 Plug 'Yggdroot/indentLine'
@@ -107,6 +104,7 @@ Plug 'timonv/vim-cargo'
 Plug 'neowit/vim-force.com'
 " see \config\vim-force.com.vimrc for configuration
 
+" Fugitive: git support
 Plug 'tpope/vim-fugitive'
 
 " Twiggy: git branch management
@@ -158,6 +156,9 @@ nmap gx <Plug>(openbrowser-smart-search)
 " Otherwise, search selected word.
 vmap gx <Plug>(openbrowser-smart-search)
 
+" Vim Cool: Remove search highlights when done searching
+Plug 'romainl/vim-cool'
+
 " Markdown
  
 " MKDX: markdown swiss army knife
@@ -199,11 +200,6 @@ Plug 'vim-scripts/taglist.vim'
 
 " Tag Bar: Display tags
 Plug 'majutsushi/tagbar'
-" show tags in the order they appear in the source
-let g:tagbar_sort = 0
-" show tagbar at top
-let g:tagbar_vertical = 10
-let g:tagbar_left = 1
 
 " Ultisnips: Snippets management
 Plug 'sirver/ultisnips'
@@ -261,7 +257,7 @@ Plug 'rcaputo/vim-ledger_x'
 " TODO: todo.txt support
 Plug 'vim-scripts/todo-txt.vim'
 
-" Vimoutliner: outlining toold
+" Vimoutliner: outlining tool
 Plug 'vimoutliner/vimoutliner'
 
 " unimpaired.vim
@@ -275,18 +271,6 @@ Plug 'moll/vim-node'
 
 " Startify: menu on vim startup
 Plug 'mhinz/vim-startify'
-function! s:list_sessions()
-    let sessions = map(split(globpath(g:session_directory, '*.vim'), '\n'), {index, val -> fnamemodify(val, ':t:r')})
-    return map(sessions, '{"line": v:val, "cmd": "OpenSession " . v:val}')
-endfunction
-
-let g:startify_lists = [
-      \ { 'type': function('s:list_sessions'),  'header': ['   Sessions']       },
-      \ { 'type': 'commands',                   'header': ['   Commands']       },
-      \ { 'type': 'files',                      'header': ['   MRU']            },
-      \ { 'type': 'dir',                        'header': ['   MRU '. getcwd()] },
-      \ { 'type': 'bookmarks',                  'header': ['   Bookmarks']      },
-      \ ]
 
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
@@ -300,36 +284,6 @@ nnoremap <leader>u :GundoToggle<CR>
 
 " Coc: language server support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Coc lsp mappings
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> sgr :sp<CR><Plug>(coc-references)
-nmap <silent> vgr :vsp<CR><Plug>(coc-references)
-
-command Reformat :call CocAction('format')
-
-" mapping errors and warnings navigation
-nnoremap ]x :call CocAction('diagnosticNext')<CR>
-nnoremap [x :call CocAction('diagnosticPrevious')<CR>
-
-" Show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
 
 " Vim Spotlightify: better search highlighting
 Plug 'fcpg/vim-spotlightify'
@@ -355,14 +309,6 @@ let g:tidal_target = "terminal"
 
 " Vimwiki: wiki
 Plug 'vimwiki/vimwiki'
-let main_wiki = {}
-let main_wiki.path = '~/Projects/notes/'
-let main_wiki.auto_toc = 1
-let main_wiki.syntax = 'markdown'
-let main_wiki.extension = '.wiki'
-let g:vimwiki_list = [main_wiki]
-let g:vimwiki_global_ext = 0
-let g:markdown_folding = 1
 
 " Vim plugin authoring
 """"""""""""""""""""""
