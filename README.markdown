@@ -1,5 +1,5 @@
 ### Stephan's vim config files
 
-This is my active vim configuration. I use vim on both Linux and MacOs. I no longer use Windows.
+This is my old vim configuration. I've moved from vim to neovim.
 
-In my dayjob, I'm a software developer working mostly on the Salesforce platform.
+See my [lua-based neovim config](https://github.com/stephanspiegel/dotfiles/tree/main/nvim).
